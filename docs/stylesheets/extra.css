@@ -1,0 +1,23 @@
+/* 全局字体与公式微调 */
+:root {
+  --md-text-font: "Noto Sans SC", -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+/* KaTeX 公式块允许横向滚动，避免长公式撑破移动端布局 */
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.2rem 0;
+}
+
+/* 首页 Hero 区域 */
+.eju-hero {
+  text-align: center;
+  padding: 2.5rem 1rem 1.5rem;
+}
+.eju-hero h1 { margin-bottom: 0.5rem; }
+
+/* 例题卡片 */
+.eju-example .admonition-title {
+  font-weight: 700;
+}

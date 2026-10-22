@@ -1,0 +1,106 @@
+site_name: EJU 数学知识库
+site_description: 日本留学试验（EJU）数学系统化知识体系 —— 参照 OI Wiki 的组织方式构建
+site_author: EJU Math Project
+copyright: Copyright &copy; 2026 EJU Math Project
+# 部署后改成实际域名；影响 sitemap 与 canonical 链接
+site_url: https://eju-math.github.io/
+
+theme:
+  name: material
+  language: zh
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - navigation.footer
+    - navigation.tracking
+    - navigation.instant
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.tabs.link
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: pink
+      toggle:
+        icon: material/brightness-7
+        name: 切换到夜间模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: pink
+      toggle:
+        icon: material/brightness-4
+        name: 切换到日间模式
+  icon:
+    logo: material/function-variant
+
+plugins:
+  - search:
+      separator: '[\s\u200b\-]'
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - def_list
+  - tables
+  - toc:
+      permalink: "#"
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+# KaTeX：CSS 必须显式引入，否则公式无样式
+extra_css:
+  - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css
+  - stylesheets/extra.css
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js
+  - javascripts/katex.js
+
+nav:
+  - 首页: index.md
+  - 考试总览:
+      - exam/index.md
+      - 备考策略: exam/strategy.md
+      - 公式速查: cheatsheet.md
+  - 数学 Course 1:
+      - course1/index.md
+      - 数与式: course1/numbers.md
+      - 二次函数: course1/quadratic.md
+      - 图形与计量: course1/measure.md
+      - 概率: course1/probability.md
+      - 数据的统计分析: course1/data.md
+      - 整数的性质: course1/integer.md
+      - 图形的性质: course1/geometry.md
+  - 数学 Course 2:
+      - course2/index.md
+      - 式与证明·高次方程: course2/polynomials.md
+      - 图形与方程: course2/geometry-equation.md
+      - 三角函数: course2/trig.md
+      - 指数函数·对数函数: course2/explog.md
+      - 数列: course2/sequence.md
+      - 向量: course2/vector.md
+      - 复数平面: course2/complex.md
+      - 微分与积分: course2/calculus.md
