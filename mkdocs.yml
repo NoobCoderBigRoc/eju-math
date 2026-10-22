@@ -2,8 +2,8 @@ site_name: EJU 数学知识库
 site_description: 日本留学试验（EJU）数学系统化知识体系 —— 参照 OI Wiki 的组织方式构建
 site_author: EJU Math Project
 copyright: Copyright &copy; 2026 EJU Math Project
-# 部署后改成实际域名；影响 sitemap 与 canonical 链接
-site_url: https://eju-math.github.io/
+# GitHub Pages 项目页地址（如改用自定义域名请修改此处）
+site_url: https://noobcoderbigroc.github.io/eju-math/
 
 theme:
   name: material
