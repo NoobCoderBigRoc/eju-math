@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EJU 数学知识库 · 访问统计</title>
+<style>
+  :root{
+    --bg:#f6f7fb; --panel:#fff; --border:#e4e7ef; --text:#1b2333; --muted:#6b7590;
+    --primary:#4f5bc4; --primary-soft:#eceefb; --accent:#e0508a; --green:#1f9d74;
+    --shadow:0 1px 2px rgba(17,24,39,.04),0 8px 24px rgba(17,24,39,.06);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font:14px/1.6 -apple-system,"PingFang SC","Microsoft YaHei",system-ui,sans-serif}
+  a{color:inherit}
+  .wrap{max-width:1120px;margin:0 auto;padding:24px 20px 60px}
+  header{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:20px}
+  .brand{display:flex;align-items:center;gap:10px;font-size:17px;font-weight:700;letter-spacing:.2px}
+  .dot{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(31,157,116,.15)}
+  .spacer{flex:1}
+  .tabs{display:flex;background:var(--panel);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+  .tabs button{border:0;background:transparent;padding:7px 14px;font-size:13px;color:var(--muted);cursor:pointer}
+  .tabs button.active{background:var(--primary);color:#fff;font-weight:600}
+  .btn{border:1px solid var(--border);background:var(--panel);border-radius:9px;padding:7px 13px;
+    font-size:13px;cursor:pointer;color:var(--text)}
+  .btn:hover{border-color:#c9cfe0}
+  .btn.primary{background:var(--primary);border-color:var(--primary);color:#fff;font-weight:600}
+
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:18px}
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow)}
+  .kpi .label{font-size:12px;color:var(--muted);letter-spacing:.3px}
+  .kpi .value{font-size:28px;font-weight:750;margin-top:6px;font-variant-numeric:tabular-nums}
+  .kpi .sub{font-size:12px;color:var(--muted);margin-top:2px}
+  .kpi.pv .value{color:var(--primary)}
+  .kpi.uv .value{color:var(--accent)}
+
+  .grid{display:grid;grid-template-columns:1.55fr 1fr;gap:16px}
+  @media(max-width:880px){.grid{grid-template-columns:1fr}}
+  h2{font-size:14px;margin:0 0 12px;font-weight:700}
+  h2 small{font-weight:400;color:var(--muted);margin-left:6px;font-size:12px}
+
+  .chart-box{position:relative}
+  svg{display:block;width:100%;height:auto}
+  .legend{display:flex;gap:16px;font-size:12px;color:var(--muted);margin-top:8px}
+  .legend i{display:inline-block;width:10px;height:3px;border-radius:2px;margin-right:5px;vertical-align:middle}
+
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th{text-align:left;color:var(--muted);font-weight:500;font-size:12px;padding:0 0 8px}
+  td{padding:7px 0;border-top:1px solid var(--border);vertical-align:middle}
+  td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .pname{display:flex;align-items:center;gap:8px;min-width:0}
+  .pname span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .bar{height:4px;border-radius:3px;background:var(--primary-soft);position:relative;flex:0 0 64px}
+  .bar i{position:absolute;left:0;top:0;bottom:0;border-radius:3px;background:var(--primary)}
+
+  .list{display:flex;flex-direction:column;gap:10px}
+  .row{display:flex;align-items:center;gap:10px;font-size:13px}
+  .row .name{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .row .val{color:var(--muted);font-variant-numeric:tabular-nums}
+  .track{height:6px;border-radius:4px;background:var(--primary-soft);overflow:hidden;flex:0 0 92px}
+  .track i{display:block;height:100%;background:var(--primary)}
+
+  .empty{color:var(--muted);font-size:13px;padding:18px 0;text-align:center}
+
+  /* 登录层 */
+  .mask{position:fixed;inset:0;background:rgba(23,28,42,.45);display:flex;align-items:center;
+    justify-content:center;backdrop-filter:blur(3px);z-index:20}
+  .login{background:var(--panel);border-radius:16px;padding:26px;width:min(92vw,380px);
+    box-shadow:0 20px 60px rgba(17,24,39,.25)}
+  .login h1{font-size:17px;margin:0 0 6px}
+  .login p{color:var(--muted);font-size:13px;margin:0 0 16px}
+  .login input{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:9px;
+    font-size:14px;margin-bottom:12px;outline:none}
+  .login input:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(79,91,196,.12)}
+  .login .btn{width:100%;padding:10px;font-size:14px}
+  .err{color:#d33;font-size:12px;min-height:18px}
+  .hidden{display:none!important}
+  .foot{color:var(--muted);font-size:12px;margin-top:22px;display:flex;gap:14px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+
+<div class="mask" id="mask">
+  <form class="login" id="loginForm">
+    <h1>访问统计后台</h1>
+    <p>请输入管理令牌（服务端 <code>ADMIN_TOKEN</code>）</p>
+    <input id="tokenInput" type="password" placeholder="admin token" autocomplete="current-password">
+    <div class="err" id="loginErr"></div>
+    <button class="btn primary" type="submit">进入看板</button>
+  </form>
+</div>
+
+<div class="wrap">
+  <header>
+    <div class="brand"><span class="dot"></span>EJU 数学知识库 · 访问统计</div>
+    <div class="spacer"></div>
+    <div class="tabs" id="rangeTabs">
+      <button data-days="7" class="active">近 7 天</button>
+      <button data-days="30">近 30 天</button>
+      <button data-days="90">近 90 天</button>
+    </div>
+    <button class="btn" id="refreshBtn">刷新</button>
+    <button class="btn" id="logoutBtn">退出</button>
+  </header>
+
+  <div class="kpis">
+    <div class="card kpi pv"><div class="label">总浏览量 PV</div><div class="value" id="kpiPv">–</div><div class="sub" id="kpiPvSub">区间累计</div></div>
+    <div class="card kpi uv"><div class="label">独立访客 UV</div><div class="value" id="kpiUv">–</div><div class="sub" id="kpiUvSub">按日去重</div></div>
+    <div class="card kpi"><div class="label">今日浏览量</div><div class="value" id="kpiTodayPv">–</div><div class="sub" id="kpiTodaySub">今天</div></div>
+    <div class="card kpi"><div class="label">今日访客</div><div class="value" id="kpiTodayUv">–</div><div class="sub" id="kpiRealtime">最近 30 分钟 –</div></div>
+  </div>
+
+  <div class="card" style="margin-bottom:16px">
+    <h2>访问趋势 <small>PV / UV 按日</small></h2>
+    <div class="chart-box"><svg id="chart" viewBox="0 0 760 240" preserveAspectRatio="none" role="img" aria-label="访问趋势图"></svg></div>
+    <div class="legend">
+      <span><i style="background:var(--primary)"></i>PV 浏览量</span>
+      <span><i style="background:var(--accent)"></i>UV 访客数</span>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h2>热门页面 <small>Top 15</small></h2>
+      <table>
+        <thead><tr><th>页面</th><th class="num">PV</th><th class="num">UV</th></tr></thead>
+        <tbody id="pagesBody"><tr><td colspan="3" class="empty">暂无数据</td></tr></tbody>
+      </table>
+    </div>
+    <div>
+      <div class="card" style="margin-bottom:16px">
+        <h2>访问来源</h2>
+        <div class="list" id="refList"><div class="empty">暂无数据</div></div>
+      </div>
+      <div class="card">
+        <h2>设备分布</h2>
+        <div class="list" id="devList"><div class="empty">暂无数据</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span id="generatedAt">–</span>
+    <span>数据不含原始 IP，按日盐哈希去重</span>
+    <span>已过滤爬虫与本地访问</span>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  var TOKEN_KEY = "eju_analytics_token";
+  var API = "";                    // 与看板同源，无需配置
+  var state = { days: 7, token: sessionStorage.getItem(TOKEN_KEY) || "" };
+
+  var el = function (id) { return document.getElementById(id); };
+  var fmt = function (n) { return (n == null ? "–" : Number(n).toLocaleString("zh-CN")); };
+
+  /* ---------- 登录 ---------- */
+  function showLogin(msg) {
+    el("mask").classList.remove("hidden");
+    if (msg) el("loginErr").textContent = msg;
+  }
+  function hideLogin() { el("mask").classList.add("hidden"); }
+
+  el("loginForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var t = el("tokenInput").value.trim();
+    if (!t) { el("loginErr").textContent = "请输入令牌"; return; }
+    state.token = t;
+    sessionStorage.setItem(TOKEN_KEY, t);
+    load().then(function (ok) {
+      if (ok) { hideLogin(); el("loginErr").textContent = ""; }
+      else { sessionStorage.removeItem(TOKEN_KEY); state.token = ""; showLogin("令牌无效，请重试"); }
+    });
+  });
+
+  el("logoutBtn").addEventListener("click", function () {
+    sessionStorage.removeItem(TOKEN_KEY);
+    state.token = "";
+    location.reload();
+  });
+
+  /* ---------- 请求 ---------- */
+  function get(path) {
+    return fetch(API + path, { headers: { Authorization: "Bearer " + state.token } })
+      .then(function (r) {
+        if (r.status === 401) throw new Error("unauthorized");
+        if (!r.ok) throw new Error("http " + r.status);
+        return r.json();
+      });
+  }
+
+  function load() {
+    return Promise.all([get("/api/stats?days=" + state.days), get("/api/realtime")])
+      .then(function (res) {
+        render(res[0]);
+        renderRealtime(res[1]);
+        return true;
+      })
+      .catch(function (err) {
+        if (err.message === "unauthorized") { showLogin("令牌失效，请重新登录"); return false; }
+        el("generatedAt").textContent = "加载失败：" + err.message;
+        return false;
+      });
+  }
+
+  /* ---------- 渲染 ---------- */
+  function render(d) {
+    var t = d.totals;
+    el("kpiPv").textContent = fmt(t.pv);
+    el("kpiUv").textContent = fmt(t.uv);
+    el("kpiTodayPv").textContent = fmt(t.today_pv);
+    el("kpiTodayUv").textContent = fmt(t.today_uv);
+    el("kpiPvSub").textContent = "近 " + d.range_days + " 天累计";
+    el("kpiUvSub").textContent = t.uv ? "人均 " + (t.pv / t.uv).toFixed(1) + " 页" : "按日去重";
+    el("generatedAt").textContent = "更新于 " + d.generated_at;
+
+    drawChart(d.series);
+    renderPages(d.top_pages);
+    renderList("refList", d.referrers, "src", "pv");
+    renderList("devList", d.devices.map(function (x) {
+      var label = { desktop: "桌面端", mobile: "移动端", tablet: "平板" }[x.device] || x.device || "未知";
+      return { name: label, pv: x.pv };
+    }), "name", "pv");
+  }
+
+  function renderRealtime(r) {
+    el("kpiRealtime").textContent = "最近 30 分钟 " + r.last_30min_pv + " PV / " + r.last_30min_uv + " UV";
+  }
+
+  function renderPages(pages) {
+    var body = el("pagesBody");
+    if (!pages || !pages.length) {
+      body.innerHTML = '<tr><td colspan="3" class="empty">暂无数据</td></tr>';
+      return;
+    }
+    var max = Math.max.apply(null, pages.map(function (p) { return p.pv; })) || 1;
+    body.innerHTML = pages.map(function (p) {
+      var w = Math.max(4, Math.round(p.pv / max * 100));
+      var name = p.path.length > 42 ? "…" + p.path.slice(-40) : p.path;
+      return '<tr><td><div class="pname"><span title="' + esc(p.path) + '">' + esc(name) +
+        '</span><div class="bar"><i style="width:' + w + '%"></i></div></div></td>' +
+        '<td class="num">' + fmt(p.pv) + '</td><td class="num">' + fmt(p.uv) + '</td></tr>';
+    }).join("");
+  }
+
+  function renderList(id, rows, nameKey, valKey) {
+    var box = el(id);
+    if (!rows || !rows.length) { box.innerHTML = '<div class="empty">暂无数据</div>'; return; }
+    var max = Math.max.apply(null, rows.map(function (r) { return r[valKey]; })) || 1;
+    box.innerHTML = rows.map(function (r) {
+      var w = Math.max(4, Math.round(r[valKey] / max * 100));
+      return '<div class="row"><span class="name" title="' + esc(r[nameKey] || "") + '">' +
+        esc(r[nameKey] || "未知") + '</span><span class="track"><i style="width:' + w + '%"></i></span>' +
+        '<span class="val">' + fmt(r[valKey]) + '</span></div>';
+    }).join("");
+  }
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+
+  /* ---------- SVG 趋势图 ---------- */
+  function drawChart(series) {
+    var svg = el("chart");
+    var W = 760, H = 240, padL = 34, padR = 12, padT = 14, padB = 26;
+    var iw = W - padL - padR, ih = H - padT - padB;
+    svg.innerHTML = "";
+
+    var maxV = Math.max.apply(null, series.map(function (p) { return Math.max(p.pv, p.uv); }));
+    maxV = maxV > 0 ? maxV * 1.18 : 4;
+    var n = series.length;
+
+    function x(i) { return padL + (n === 1 ? iw / 2 : i * iw / (n - 1)); }
+    function y(v) { return padT + ih - (v / maxV) * ih; }
+
+    function node(tag, attrs, text) {
+      var e = document.createElementNS("http://www.w3.org/2000/svg", tag);
+      for (var k in attrs) e.setAttribute(k, attrs[k]);
+      if (text != null) e.textContent = text;
+      svg.appendChild(e);
+      return e;
+    }
+
+    // 网格与 Y 轴
+    for (var g = 0; g <= 4; g++) {
+      var gv = maxV / 4 * g;
+      node("line", { x1: padL, y1: y(gv), x2: W - padR, y2: y(gv), stroke: "#eef0f6", "stroke-width": 1 });
+      node("text", { x: padL - 8, y: y(gv) + 4, "text-anchor": "end", "font-size": 10, fill: "#98a0b8" },
+        Math.round(gv));
+    }
+
+    // 折线
+    function path(key, color) {
+      var pts = series.map(function (p, i) { return x(i) + "," + y(p[key]); }).join(" ");
+      node("polyline", { points: pts, fill: "none", stroke: color, "stroke-width": 2.2,
+        "stroke-linejoin": "round", "stroke-linecap": "round" });
+      series.forEach(function (p, i) {
+        if (n <= 31) node("circle", { cx: x(i), cy: y(p[key]), r: 2.4, fill: color });
+      });
+    }
+    path("pv", "#4f5bc4");
+    path("uv", "#e0508a");
+
+    // X 轴标签
+    var step = Math.max(1, Math.ceil(n / 7));
+    series.forEach(function (p, i) {
+      if (i % step !== 0 && i !== n - 1) return;
+      var label = p.date.slice(5).replace("-", "/");
+      node("text", { x: x(i), y: H - 8, "text-anchor": "middle", "font-size": 10, fill: "#98a0b8" }, label);
+    });
+
+    if (!maxV) return;
+  }
+
+  /* ---------- 交互 ---------- */
+  el("rangeTabs").addEventListener("click", function (e) {
+    var b = e.target.closest("button");
+    if (!b) return;
+    Array.prototype.forEach.call(this.children, function (c) { c.classList.remove("active"); });
+    b.classList.add("active");
+    state.days = Number(b.dataset.days);
+    load();
+  });
+  el("refreshBtn").addEventListener("click", load);
+
+  /* ---------- 启动 ---------- */
+  if (!state.token) {
+    showLogin();
+  } else {
+    load().then(function (ok) { if (ok) hideLogin(); else showLogin("令牌失效，请重新登录"); });
+  }
+  setInterval(function () { if (state.token) load(); }, 30000);
+})();
+</script>
+</body>
+</html>

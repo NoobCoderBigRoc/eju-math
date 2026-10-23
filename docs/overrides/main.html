@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{#
+  注入统计采集地址。
+  在 mkdocs.yml 中配置：
+    extra:
+      analytics_endpoint: "https://stats.example.com"
+  留空则不下发 meta，埋点脚本自动禁用。
+#}
+{% block extrahead %}
+  {{ super() }}
+  {% if config.extra.analytics_endpoint %}
+  <meta name="analytics-endpoint" content="{{ config.extra.analytics_endpoint }}">
+  {% endif %}
+{% endblock %}

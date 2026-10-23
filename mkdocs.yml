@@ -8,6 +8,7 @@ site_url: https://noobcoderbigroc.github.io/eju-math/
 theme:
   name: material
   language: zh
+  custom_dir: docs/overrides
   features:
     - navigation.tabs
     - navigation.sections
@@ -78,6 +79,12 @@ extra_javascript:
   - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js
   - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js
   - javascripts/katex.js
+  - javascripts/track.js
+
+# 访问统计采集地址（analytics/server.py 部署后的公网地址）
+# 留空则不埋点，适合本地开发；部署后改成实际地址再重新构建
+extra:
+  analytics_endpoint: ""
 
 nav:
   - 首页: index.md

@@ -1,0 +1,16 @@
+services:
+  analytics:
+    build: .
+    container_name: eju-analytics
+    restart: unless-stopped
+    ports:
+      - "8787:8787"
+    environment:
+      # 生产环境必须改成足够长的随机串：openssl rand -hex 24
+      ADMIN_TOKEN: ${ADMIN_TOKEN:?请先设置 ADMIN_TOKEN}
+      # 只允许你的站点域名上报
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:-https://noobcoderbigroc.github.io}
+      RETENTION_DAYS: "400"
+      TZ: Asia/Shanghai
+    volumes:
+      - ./data:/data

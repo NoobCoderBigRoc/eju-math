@@ -35,8 +35,30 @@ docs/
 ├── exam/               # 考试总览、备考策略
 ├── course1/            # 文科数学 7 章
 ├── course2/            # 理科数学 8 章
+├── overrides/          # 主题覆盖（注入统计端点）
 ├── javascripts/katex.js  # KaTeX 渲染 + CDN 回退
+├── javascripts/track.js  # 访问统计埋点
 └── stylesheets/extra.css
+
+analytics/              # 访问统计后台（独立部署）
+├── server.py           # 采集 + 聚合 API（Python 标准库 + SQLite）
+├── static/index.html   # 管理看板
+├── Dockerfile
+└── docker-compose.yml
+```
+
+## 访问统计
+
+站点是纯静态的，统计后台需独立部署（详见 [analytics/README.md](analytics/README.md)）。对接只需两步：
+
+```bash
+cd analytics && ADMIN_TOKEN=$(openssl rand -hex 24) python3 server.py   # 本地看板 8787
+```
+
+```yaml
+# mkdocs.yml
+extra:
+  analytics_endpoint: "https://stats.example.com"   # 留空则完全关闭埋点
 ```
 
 ## 内容页面模板
