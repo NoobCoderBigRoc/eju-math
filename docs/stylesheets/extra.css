@@ -21,3 +21,9 @@
 .eju-example .admonition-title {
   font-weight: 700;
 }
+
+/* 侧边栏逐级缩进（OI Wiki 式）：每深入一层导航，子列表整体右移一档，
+   使「项目 → 分组 → 细目」的层级一眼可辨 */
+.md-sidebar--primary .md-nav__list .md-nav__list {
+  padding-left: 0.85rem;
+}
