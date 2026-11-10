@@ -12,8 +12,3 @@ title: 多項式の加法・減法・乗法
 - $(ax + b)(cx + d) = acx^2 + (ad + bc)x + bd$
 - $(a + b)^3 = a^3 + 3a^2b + 3ab^2 + b^3$、$(a - b)^3 = a^3 - 3a^2b + 3ab^2 - b^3$
 - $a^3 + b^3 = (a + b)(a^2 - ab + b^2)$、$a^3 - b^3 = (a - b)(a^2 + ab + b^2)$
-
-## 関連項目
-
-- 前置：初中数学（式の展開、平方根、一次方程式）
-- 后续：[集合と命題](../sets/sets.md)、[いろいろな式](../../course2/polynomials/polynomial-division.md)

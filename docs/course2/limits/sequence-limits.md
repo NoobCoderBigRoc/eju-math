@@ -26,8 +26,3 @@ title: 数列の極限
 ## 易错点
 
 - [ ] $(\sqrt{n + a} - \sqrt{n + b})$ は有理化してから（根号差的极限先有理化）
-
-## 関連項目
-
-- 前置：[数列](../sequence/arithmetic-geometric.md)（等比数列の和）
-- 后续：[微分法](../differentiation/index.md）（导数即差商的极限）

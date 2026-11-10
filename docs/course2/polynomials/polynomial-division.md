@@ -11,8 +11,3 @@ title: 多項式の除法・分数式・恒等式
 ## 易错点
 
 - [ ] 恒等式の係数比較は同類項どうしで（系数比较要按同类项一一对应）
-
-## 関連項目
-
-- 前置：[数と式](../../course1/numbers/polynomial-ops.md)
-- 后续：[複素数平面](../complex/complex-plane.md)、[微分法](../differentiation/derivative-definition.md)（恒等式与系数比较）
