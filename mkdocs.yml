@@ -90,6 +90,7 @@ nav:
   - 首页: index.md
   - 考试总览:
       - exam/index.md
+      - 出題範囲（シラバス）: exam/syllabus.md
       - 备考策略: exam/strategy.md
       - 公式速查: cheatsheet.md
   - 数学 Course 1:
