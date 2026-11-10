@@ -92,6 +92,7 @@ nav:
   - 备考策略: exam/strategy.md
   - 考纲对照: exam/syllabus.md
   - 公式速查: cheatsheet.md
+  - 更新记录: changelog.md
   - 数学 Course 1:
       - course1/index.md
       - 1. 数と式:
