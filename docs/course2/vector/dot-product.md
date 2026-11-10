@@ -4,6 +4,10 @@ title: ベクトルの内積
 
 # ベクトルの内積
 
+![内積](../../images/vector-dot-product.svg)
+
+图：内积的几何含义——两向量夹角 $\theta$ 的余弦参与运算；$\theta = 90^\circ$ 时内积为 0。
+
 $$\vec{a} \cdot \vec{b} = |\vec{a}||\vec{b}|\cos\theta = a_1 b_1 + a_2 b_2$$
 
 垂直条件 $\vec{a} \cdot \vec{b} = 0$；夹角 $\cos\theta = \dfrac{\vec{a} \cdot \vec{b}}{|\vec{a}||\vec{b}|}$。内积为 0 是判定垂直最快的工具。
