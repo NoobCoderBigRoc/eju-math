@@ -36,6 +36,10 @@ $$
 
 2 曲線に囲まれた面積（$f \geqq g$）：$S = \displaystyle\int_a^b \{f(x) - g(x)\}\, dx$。上下関係が入れ替わる区間では分割する。
 
+![2曲線に囲まれた面積](../images/int-area.svg)
+
+図：$y = x^2$ と $y = x + 2$ に囲まれた部分（例題 3）。交点は $x = -1, 2$、面積は $\dfrac{9}{2}$。
+
 $x$ 軸のまわりの回転体の体積：$V = \pi \displaystyle\int_a^b \{f(x)\}^2\, dx$。
 
 曲線 $y = f(x)$（$a \leqq x \leqq b$）の長さ：
