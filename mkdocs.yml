@@ -1,5 +1,5 @@
-site_name: EJU 数学知識庫
-site_description: 日本留学試験（EJU）数学の体系的知識庫 —— OI Wiki の組織方式を参照して構築
+site_name: EJU数学Wiki
+site_description: 面向海外留学生的日本留学试验（EJU）数学知识库 —— 参照 OI Wiki 的组织方式构建
 site_author: EJU Math Project
 copyright: Copyright &copy; 2026 EJU Math Project
 # GitHub Pages 项目页地址（如改用自定义域名请修改此处）
@@ -7,7 +7,7 @@ site_url: https://noobcoderbigroc.github.io/eju-math/
 
 theme:
   name: material
-  language: ja
+  language: zh
   custom_dir: docs/overrides
   features:
     - navigation.tabs
