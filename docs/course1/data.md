@@ -5,7 +5,7 @@ title: データの分析（補充）
 # 补充. データの分析
 
 !!! note "本页定位"
-    「データの分析」在 2026 年度起施行的现行考纲中不是独立出题项目。本页内容（分散・標準偏差・相関係数 等）是理解项目 5 的期待值与项目 13 [確率分布](../course2/probability-distribution.md) 的基础，作为补充页保留。
+    「データの分析」在 2026 年度起施行的现行考纲中不是独立出题项目。本页内容（分散・標準偏差・相関係数 等）是理解项目 5 的期待值与项目 13 [確率分布](../course2/probability-distribution/index.md) 的基础，作为补充页保留。
 
 ## 与考纲的对应
 
@@ -57,5 +57,5 @@ $r > 0$ 为正相关，$r < 0$ 为负相关，$|r|$ 越大线性关系越强。�
 
 ## 相关条目
 
-- 系统处理：[確率分布](../course2/probability-distribution.md)
-- 前提：[場合の数と確率](probability.md)
+- 系统处理：[確率分布](../course2/probability-distribution/index.md)
+- 前提：[場合の数と確率](probability/index.md)
