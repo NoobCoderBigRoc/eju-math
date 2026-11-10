@@ -4,7 +4,7 @@ title: 首页
 
 <div class="eju-hero" markdown>
 
-# EJU 数学知识库
+# EJU数学Wiki
 
 **面向海外留学生的日本留学试验（EJU）数学系统化知识库**
 
