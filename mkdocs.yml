@@ -30,14 +30,14 @@ theme:
       accent: pink
       toggle:
         icon: material/brightness-7
-        name: ダークモードに切り替える
+        name: 切换到深色模式
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: indigo
       accent: pink
       toggle:
         icon: material/brightness-4
-        name: ライトモードに切り替える
+        name: 切换到浅色模式
   icon:
     logo: material/function-variant
 
@@ -88,33 +88,101 @@ extra:
 
 nav:
   - 首页: index.md
-  - 考试总览:
-      - exam/index.md
-      - 出题范围（考纲对照）: exam/syllabus.md
-      - 备考策略: exam/strategy.md
-      - 公式速查: cheatsheet.md
-  - コース1（項目 1〜7）:
+  - 考试总览: exam/index.md
+  - 备考策略: exam/strategy.md
+  - 考纲对照: exam/syllabus.md
+  - 公式速查: cheatsheet.md
+  - 数学 Course 1:
       - course1/index.md
-      - 1. 数と式: course1/numbers.md
-      - 2. 集合と命題: course1/sets.md
-      - 3. 2次関数: course1/quadratic.md
-      - 4. 図形と計量: course1/measure.md
-      - 5. 場合の数と確率: course1/probability.md
-      - 6. 整数の性質: course1/integer.md
-      - 7. 図形の性質: course1/geometry.md
-      - 補充 データの分析: course1/data.md
-  - コース2（項目 8〜20）:
+      - 1. 数と式:
+          - course1/numbers/index.md
+          - 式の計算: course1/numbers/calculation.md
+          - 実数: course1/numbers/reals.md
+          - 1次不等式: course1/numbers/inequalities.md
+      - 2. 集合と命題:
+          - course1/sets/index.md
+          - 集合: course1/sets/sets.md
+          - 命題と条件: course1/sets/propositions.md
+      - 3. 2次関数:
+          - course1/quadratic/index.md
+          - 2次関数とグラフ: course1/quadratic/graph.md
+          - 2次方程式と2次不等式: course1/quadratic/equations.md
+      - 4. 図形と計量:
+          - course1/measure/index.md
+          - 三角比: course1/measure/ratios.md
+          - 三角比と図形: course1/measure/theorems.md
+      - 5. 場合の数と確率:
+          - course1/probability/index.md
+          - 場合の数: course1/probability/counting.md
+          - 確率: course1/probability/probability.md
+      - 6. 整数の性質:
+          - course1/integer/index.md
+          - 約数と倍数: course1/integer/divisors.md
+          - ユークリッドの互除法: course1/integer/euclid.md
+          - 1次不定方程式: course1/integer/diophantine.md
+          - 記数法: course1/integer/notation.md
+      - 7. 図形の性質:
+          - course1/geometry/index.md
+          - 平面図形: course1/geometry/plane.md
+          - 空間図形: course1/geometry/solid.md
+      - 補充：データの分析: course1/data.md
+  - 数学 Course 2:
       - course2/index.md
-      - 8. いろいろな式: course2/polynomials.md
-      - 9. 図形と方程式: course2/geometry-equation.md
-      - 10. 指数関数・対数関数: course2/explog.md
-      - 11. 三角関数: course2/trig.md
-      - 12. 数列: course2/sequence.md
-      - 13. 確率分布: course2/probability-distribution.md
-      - 14. ベクトル: course2/vector.md
-      - 15. 複素数平面: course2/complex.md
-      - 16. 式と曲線: course2/curves.md
-      - 17. 関数: course2/functions.md
-      - 18. 極限: course2/limits.md
-      - 19. 微分法: course2/differentiation.md
-      - 20. 積分法: course2/integration.md
+      - 8. いろいろな式:
+          - course2/polynomials/index.md
+          - 式と証明: course2/polynomials/proofs.md
+          - 高次方程式: course2/polynomials/equations.md
+      - 9. 図形と方程式:
+          - course2/geometry-equation/index.md
+          - 点と直線: course2/geometry-equation/points-lines.md
+          - 円: course2/geometry-equation/circles.md
+          - 軌跡と領域: course2/geometry-equation/locus.md
+      - 10. 指数関数・対数関数:
+          - course2/explog/index.md
+          - 指数関数: course2/explog/exponential.md
+          - 対数関数: course2/explog/logarithms.md
+      - 11. 三角関数:
+          - course2/trig/index.md
+          - 三角関数: course2/trig/basics.md
+          - 加法定理: course2/trig/addition.md
+      - 12. 数列:
+          - course2/sequence/index.md
+          - 数列とその和: course2/sequence/series.md
+          - 漸化式と数学的帰納法: course2/sequence/recurrence.md
+      - 13. 確率分布:
+          - course2/probability-distribution/index.md
+          - 確率変数と確率分布: course2/probability-distribution/variables.md
+          - 期待値・分散・標準偏差: course2/probability-distribution/moments.md
+          - 共分散と相関係数: course2/probability-distribution/covariance.md
+          - 確率変数の変換と和: course2/probability-distribution/transformation.md
+      - 14. ベクトル:
+          - course2/vector/index.md
+          - 平面上のベクトル: course2/vector/plane.md
+          - ベクトルと平面図形: course2/vector/figures.md
+          - 空間座標とベクトル: course2/vector/space.md
+      - 15. 複素数平面:
+          - course2/complex/index.md
+          - 複素数平面と極形式: course2/complex/plane.md
+          - ド・モアブルの定理: course2/complex/demoivre.md
+          - 複素数と図形: course2/complex/figures.md
+      - 16. 式と曲線:
+          - course2/curves/index.md
+          - 2次曲線: course2/curves/conics.md
+          - 媒介変数表示: course2/curves/parametric.md
+          - 極座標と極方程式: course2/curves/polar.md
+      - 17. 関数:
+          - course2/functions/index.md
+          - 分数関数と無理関数: course2/functions/rational.md
+          - 逆関数と合成関数: course2/functions/inverse.md
+      - 18. 極限:
+          - course2/limits/index.md
+          - 数列とその極限: course2/limits/sequences.md
+          - 関数とその極限: course2/limits/functions.md
+      - 19. 微分法:
+          - course2/differentiation/index.md
+          - 導関数: course2/differentiation/derivatives.md
+          - 導関数の応用: course2/differentiation/applications.md
+      - 20. 積分法:
+          - course2/integration/index.md
+          - 不定積分と定積分: course2/integration/integrals.md
+          - 積分の応用: course2/integration/applications.md
