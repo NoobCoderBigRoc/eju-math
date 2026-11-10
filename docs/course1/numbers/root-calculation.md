@@ -8,11 +8,11 @@ title: 根号を含む式の計算
 - 分母有理化：$\dfrac{1}{\sqrt{a}} = \dfrac{\sqrt{a}}{a}$；$\dfrac{1}{\sqrt{a} + \sqrt{b}} = \dfrac{\sqrt{a} - \sqrt{b}}{a - b}$
 - 二重根号：$\sqrt{(p + q) + 2\sqrt{pq}} = \sqrt{p} + \sqrt{q}$（$p > q > 0$）
 
-??? example "演習：分母の有理化"
-    **问题**
+**演習：分母の有理化**
 
-    $\dfrac{1}{\sqrt{3} - 1}$ の分母を有理化せよ。
+$\dfrac{1}{\sqrt{3} - 1}$ の分母を有理化せよ。
 
+??? example "思路・解答"
     **答案**
 
     $\dfrac{\sqrt{3} + 1}{2}$

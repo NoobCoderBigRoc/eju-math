@@ -8,11 +8,11 @@ $$a\sin\theta + b\cos\theta = \sqrt{a^2 + b^2}\sin(\theta + \varphi)$$
 
 其中 $\cos\varphi = \dfrac{a}{\sqrt{a^2 + b^2}}$、$\sin\varphi = \dfrac{b}{\sqrt{a^2 + b^2}}$。合成后求最值、解方程/不等式都变简单。
 
-??? example "演習：合成と最大値"
-    **问题**
+**演習：合成と最大値**
 
-    $\sin\theta + \sqrt{3}\cos\theta$ の最大値を求めよ。
+$\sin\theta + \sqrt{3}\cos\theta$ の最大値を求めよ。
 
+??? example "思路・解答"
     **答案**
 
     $2$

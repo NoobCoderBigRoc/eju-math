@@ -7,11 +7,11 @@ title: いろいろな数列の和
 - $\sum_{k=1}^{n} k = \dfrac{n(n + 1)}{2}$、$\sum k^2 = \dfrac{n(n + 1)(2n + 1)}{6}$、$\sum k^3 = \left\{\dfrac{n(n + 1)}{2}\right\}^2$
 - 部分分数分解（部分分数分解）处理 $\sum \dfrac{1}{k(k + 1)}$ 类（分母可因式分解时拆成差，利用望远镜消去）；等比×等差混合列用「$S - rS$」錯位相减（ずらして引く）。
 
-??? example "演習：部分分数分解"
-    **问题**
+**演習：部分分数分解**
 
-    $\displaystyle \sum_{k=1}^{n} \frac{1}{k(k + 1)}$ を求めよ。
+$\displaystyle \sum_{k=1}^{n} \frac{1}{k(k + 1)}$ を求めよ。
 
+??? example "思路・解答"
     **答案**
 
     $\dfrac{n}{n + 1}$

@@ -8,11 +8,11 @@ $$\vec{a} \cdot \vec{b} = |\vec{a}||\vec{b}|\cos\theta = a_1 b_1 + a_2 b_2$$
 
 垂直条件 $\vec{a} \cdot \vec{b} = 0$；夹角 $\cos\theta = \dfrac{\vec{a} \cdot \vec{b}}{|\vec{a}||\vec{b}|}$。内积为 0 是判定垂直最快的工具。
 
-??? example "演習：内積と角度"
-    **问题**
+**演習：内積と角度**
 
-    $\vec{a} = (1, 0)$、$\vec{b} = (1, \sqrt{3})$ のなす角を求めよ。
+$\vec{a} = (1, 0)$、$\vec{b} = (1, \sqrt{3})$ のなす角を求めよ。
 
+??? example "思路・解答"
     **答案**
 
     $60^\circ$

@@ -8,11 +8,11 @@ title: 加法定理の応用
 - 半角：$\sin^2\dfrac{\alpha}{2} = \dfrac{1 - \cos\alpha}{2}$、$\cos^2\dfrac{\alpha}{2} = \dfrac{1 + \cos\alpha}{2}$
 - 积与和的互化（積和・和積の公式）は加法定理两边相加减即得，可现场推导。
 
-??? example "演習：2倍角"
-    **问题**
+**演習：2倍角**
 
-    $\sin\theta = \dfrac{1}{3}$（$\theta$ は鋭角）のとき、$\sin 2\theta$ の値を求めよ。
+$\sin\theta = \dfrac{1}{3}$（$\theta$ は鋭角）のとき、$\sin 2\theta$ の値を求めよ。
 
+??? example "思路・解答"
     **答案**
 
     $\dfrac{4\sqrt{2}}{9}$
