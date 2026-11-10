@@ -18,6 +18,10 @@ title: 三角関数
 
 $y = \sin x$ の周期は $2\pi$、$y = \tan x$ の周期は $\pi$。$y = a \sin(bx + c) + d$ の振幅は $|a|$、周期は $\dfrac{2\pi}{|b|}$。
 
+![三角関数のグラフ](../images/trig-graphs.svg)
+
+図：$y = \sin x$、$y = \cos x$、$y = \tan x$ のグラフ。$\tan x$ は $x = \dfrac{\pi}{2} + n\pi$ に漸近線をもつ。
+
 ## 2. 加法定理とその応用
 
 $$
