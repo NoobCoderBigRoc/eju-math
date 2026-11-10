@@ -1,62 +1,80 @@
 ---
-title: 向量
+title: ベクトル
 ---
 
-# 向量
+# 14. ベクトル
 
-## 考纲要求
+## シラバスとの対応
 
-向量的和差、实数倍、分量表示、内积、位置向量与分点公式、用向量处理图形（垂直/平行/夹角/长度）。
+| 項目 | 内容 |
+| --- | --- |
+| 出題項目 | 14. ベクトル（数学C） |
+| 細目 | (1) 平面のベクトル：①ベクトルとその演算 ②ベクトルの成分 ③ベクトルの内積　(2) ベクトルと平面図形：①位置ベクトル ②ベクトルと図形 ③ベクトル方程式　(3) 空間座標とベクトル：①空間座標 ②空間ベクトルとその演算、内積 ③ベクトルの成分 ④ベクトルと空間図形 ⑤ベクトル方程式 |
+| コース | コース2 のみ。平面と空間を同じ道具で扱えることが強み |
 
-## 运算与分量
+## 1. ベクトルと内積（平面・空間共通）
 
-$\vec{a} = (a_1, a_2)$，$\vec{b} = (b_1, b_2)$：
-
-$$
-\vec{a} + \vec{b} = (a_1 + b_1,\ a_2 + b_2), \qquad k\vec{a} = (ka_1, ka_2)
-$$
-
-平行：$\vec{a} \parallel \vec{b} \iff a_1 b_2 - a_2 b_1 = 0$。
-
-## 内积
+$\vec{a} = (a_1, a_2)$、$\vec{b} = (b_1, b_2)$（空間では第 3 成分が加わる）について、和・差・実数倍は成分ごとに行う。
 
 $$
-\vec{a} \cdot \vec{b} = |\vec{a}|\,|\vec{b}|\cos\theta = a_1 b_1 + a_2 b_2
+\vec{a} \cdot \vec{b} = |\vec{a}|\,|\vec{b}|\cos\theta = a_1 b_1 + a_2 b_2 \quad \text{（空間では } +\, a_3 b_3 \text{）}
 $$
 
-- 垂直：$\vec{a} \cdot \vec{b} = 0$；
-- 夹角：$\cos\theta = \dfrac{\vec a \cdot \vec b}{|\vec a|\,|\vec b|}$；
-- $|\vec{a}| = \sqrt{\vec a \cdot \vec a}$。
+- 垂直条件：$\vec{a} \cdot \vec{b} = 0$（零ベクトルでないとき）
+- 平行条件（平面）：$\vec{a} \parallel \vec{b} \iff a_1 b_2 - a_2 b_1 = 0$
+- 大きさ：$|\vec{a}| = \sqrt{\vec{a} \cdot \vec{a}}$。内積は分配法則を満たすが、ベクトルに**除法はない**。
 
-**分配律**成立；但向量**没有除法**。
+## 2. 位置ベクトルと図形
 
-## 位置向量与分点
+原点を $O$ とし、点 $A$, $B$ の位置ベクトルを $\vec{a}$, $\vec{b}$ とする。$AB$ を $m : n$ に内分する点の位置ベクトルは $\dfrac{n\vec{a} + m\vec{b}}{m + n}$、中点は $\dfrac{\vec{a} + \vec{b}}{2}$。
 
-以点 $O$ 为原点，$\vec{OP} = \vec{p}$ 等：
+3 点 $A$, $B$, $C$ が一直線上にある条件は、$\overrightarrow{OC} = s\vec{a} + t\vec{b}$（$s + t = 1$）と書けること。三角形の面積は
 
 $$
-\vec{p} = \frac{\vec{a} + \vec{b}}{2}\ \text{(中点)}, \qquad \vec{p} = \frac{n\vec{a} + m\vec{b}}{m+n}\ \text{(内分 } m:n\text{)}
+S = \frac{1}{2}\sqrt{|\vec{a}|^2 |\vec{b}|^2 - (\vec{a} \cdot \vec{b})^2}
 $$
 
-三点 $A, B, C$ 共线 $\iff \vec{OC} = t\vec{OB} + (1-t)\vec{OA}$（系数和为 1）。
+## 3. ベクトル方程式
 
-## 典型例题
+点 $A(\vec{a})$ を通り方向ベクトル $\vec{d}$ に平行な直線は $\vec{p} = \vec{a} + t\vec{d}$。点 $A$ を通りベクトル $\vec{n}$ に垂直な直線（平面）は $\vec{n} \cdot (\vec{p} - \vec{a}) = 0$。空間でも同じ形で、平面の方程式 $ax + by + cz + d = 0$ の法線ベクトルは $(a, b, c)$ である。
 
-??? example "例题：内积求夹角"
-    $\vec{a} = (1, 2)$，$\vec{b} = (3, -1)$，求夹角 $\theta$。
+## 例題（演習）
 
-    **解答**：
+??? example "例題 1：内積となす角（平面）"
+    $\vec{a} = (1, 2)$、$\vec{b} = (3, -1)$ のなす角 $\theta$ の $\cos\theta$ を求めよ。
 
-    $$
-    \cos\theta = \frac{1\cdot3 + 2\cdot(-1)}{\sqrt5\,\sqrt{10}} = \frac{1}{5\sqrt2} = \frac{\sqrt2}{10}
-    $$
+    **考え方**：内積を成分と大きさの両方から表す。
 
-??? example "例题：垂线条件"
-    $\vec{a} + t\vec{b}$ 与 $\vec{a}$ 垂直（$\vec{a}\cdot\vec{b} \ne 0$），求 $t$。
+    **解答**：$\vec{a} \cdot \vec{b} = 3 - 2 = 1$、$|\vec{a}| = \sqrt{5}$、$|\vec{b}| = \sqrt{10}$ なので、$\cos\theta = \dfrac{1}{\sqrt{50}} = \dfrac{\sqrt{2}}{10}$。
 
-    **解答**：$(\vec a + t\vec b)\cdot\vec a = |\vec a|^2 + t\,\vec a \cdot \vec b = 0$，故 $t = -\dfrac{|\vec a|^2}{\vec a \cdot \vec b}$。
+    **答え**：$\cos\theta = \dfrac{\sqrt{2}}{10}$
 
-## 易错点
+??? example "例題 2：内積（空間）"
+    $\vec{a} = (1, 2, -1)$、$\vec{b} = (2, 0, 1)$ の内積となす角の $\cos$ を求めよ。
 
-- [x] 内积不满足结合律 $(\vec a \cdot \vec b)\cdot\vec c$ 无意义；
-- [x] 垂直用 $\cos\theta = 0$，平行用行列式为 0，两者公式别混用。
+    **考え方**：空間でも内積は成分の積の和。
+
+    **解答**：$\vec{a} \cdot \vec{b} = 2 + 0 - 1 = 1$。$|\vec{a}| = \sqrt{6}$、$|\vec{b}| = \sqrt{5}$ より $\cos\theta = \dfrac{1}{\sqrt{30}}$。
+
+    **答え**：内積 $1$、$\cos\theta = \dfrac{1}{\sqrt{30}}$
+
+??? example "例題 3：垂直条件から定数を決める"
+    $\vec{a} = (2, 1)$、$\vec{b} = (1, -3)$ のとき、$\vec{a} + t\vec{b}$ が $\vec{a}$ と垂直になるような $t$ を求めよ。
+
+    **考え方**：内積が 0 になる条件を使う。
+
+    **解答**：$(\vec{a} + t\vec{b}) \cdot \vec{a} = |\vec{a}|^2 + t\,\vec{a} \cdot \vec{b} = 5 + t(2 - 3) = 5 - t = 0$ より $t = 5$。
+
+    **答え**：$t = 5$
+
+## よくあるミス
+
+- [ ] 内積に結合の形 $(\vec{a} \cdot \vec{b})\vec{c}$ をベクトルの積のように扱う（結果はベクトルであり、意味が違う）
+- [ ] 平行条件と垂直条件の公式を取り違える
+- [ ] 内分点の重みを逆にする（[図形と方程式](geometry-equation.md) と同じ注意点）
+- [ ] 空間ベクトルで第 3 成分を計算に含め忘れる
+
+## 関連項目
+
+- 基礎：[図形の性質](../course1/geometry.md)、[図形と方程式](geometry-equation.md)
+- 応用：[式と曲線](curves.md)（ベクトル方程式と媒介変数表示）
