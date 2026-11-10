@@ -22,5 +22,5 @@ title: ベクトル简介
 
 ## 関連項目
 
-- 前置：[図形の性質](../../course1/geometry/triangle-properties.md)、[図形と方程式](../geometry-equation/coordinates.md)
-- 后续：[複素数平面](../complex/complex-plane.md)（复数与向量平行处理）
+- 前置：[図形の性質](../../course1/geometry/index.md)、[図形と方程式](../geometry-equation/index.md)
+- 后续：[複素数平面](../complex/index.md)（复数与向量平行处理）

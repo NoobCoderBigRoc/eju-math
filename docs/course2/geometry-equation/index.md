@@ -22,5 +22,5 @@ title: 図形と方程式简介
 
 ## 関連項目
 
-- 前置：[2次関数](../../course1/quadratic/graph-basics.md)、[図形の性質](../../course1/geometry/triangle-properties.md)
-- 后续：[ベクトル](../vector/vector-operations.md)（用向量重看图形）、[式と曲線](../curves/conics.md)（二次曲线）
+- 前置：[2次関数](../../course1/quadratic/index.md)、[図形の性質](../../course1/geometry/index.md)
+- 后续：[ベクトル](../vector/index.md)（用向量重看图形）、[式と曲線](../curves/index.md)（二次曲线）

@@ -21,5 +21,5 @@ Course 1 题量最大的项目之一：图像、顶点与最值、判别式三�
 
 ## 関連項目
 
-- 前置：[数と式](../numbers/polynomial-ops.md)（因数分解・平方根）
-- 后续：[図形と方程式](../../course2/geometry-equation/coordinates.md)、[微分法](../../course2/differentiation/derivative-definition.md)（用导数做极值）
+- 前置：[数と式](../numbers/index.md)（因数分解・平方根）
+- 后续：[図形と方程式](../../course2/geometry-equation/index.md)、[微分法](../../course2/differentiation/index.md)（用导数做极值）

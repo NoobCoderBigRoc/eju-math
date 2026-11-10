@@ -19,5 +19,5 @@ title: 複素数平面简介
 
 ## 関連項目
 
-- 基础：[いろいろな式](../polynomials/polynomial-division.md)（复数与方程式）
-- 类比：[ベクトル](../vector/vector-operations.md)
+- 基础：[いろいろな式](../polynomials/index.md)（复数与方程式）
+- 类比：[ベクトル](../vector/index.md)

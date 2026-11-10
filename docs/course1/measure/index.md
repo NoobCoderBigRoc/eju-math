@@ -19,4 +19,4 @@ title: 図形と計量简介
 
 ## 関連項目
 
-- 后续：[三角関数](../../course2/trig/radian.md)（推广到任意角与弧度制）、[ベクトル](../../course2/vector/vector-operations.md)（内积与面积）
+- 后续：[三角関数](../../course2/trig/index.md)（推广到任意角与弧度制）、[ベクトル](../../course2/vector/index.md)（内积与面积）

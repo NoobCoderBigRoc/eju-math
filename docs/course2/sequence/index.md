@@ -20,5 +20,5 @@ title: 数列简介
 
 ## 関連項目
 
-- 前置：[数と式](../../course1/numbers/polynomial-ops.md)（$\sum$ 記号、因数分解）
-- 后续：[極限](../limits/sequence-limits.md)（無限級数）、[確率分布](../probability-distribution/variables.md)（期待値の計算）
+- 前置：[数と式](../../course1/numbers/index.md)（$\sum$ 記号、因数分解）
+- 后续：[極限](../limits/index.md)（無限級数）、[確率分布](../probability-distribution/index.md)（期待値の計算）

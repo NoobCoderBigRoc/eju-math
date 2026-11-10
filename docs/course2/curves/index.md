@@ -18,5 +18,5 @@ title: 式と曲線简介
 
 ## 関連項目
 
-- 前置：[図形と方程式](../geometry-equation/coordinates.md)（圆・軌跡）
-- 关联：[積分法](../integration/integral-basics.md)（曲线围成的面积与弧长）
+- 前置：[図形と方程式](../geometry-equation/index.md)（圆・軌跡）
+- 关联：[積分法](../integration/index.md)（曲线围成的面积与弧长）

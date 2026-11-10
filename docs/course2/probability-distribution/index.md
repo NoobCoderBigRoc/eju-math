@@ -19,5 +19,5 @@ title: 確率分布简介
 
 ## 関連項目
 
-- 前置：[場合の数と確率](../../course1/probability/counting-principles.md)、[データの分析（補充）](../../course1/data.md)（平均・分散の考え方）
+- 前置：[場合の数と確率](../../course1/probability/index.md)、[データの分析（補充）](../../course1/data.md)（平均・分散の考え方）
 - 数据的离散程度与本项目的分散是同一概念在「データ／確率変数」两个舞台上的版本。

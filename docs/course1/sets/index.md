@@ -17,5 +17,5 @@ title: 集合と命題简介
 
 ## 関連項目
 
-- 前置：[数と式](../numbers/polynomial-ops.md)
-- 后续：[場合の数と確率](../probability/counting-principles.md)（用集合数元素个数）
+- 前置：[数と式](../numbers/index.md)
+- 后续：[場合の数と確率](../probability/index.md)（用集合数元素个数）

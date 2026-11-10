@@ -21,5 +21,5 @@ title: 積分法简介
 
 ## 関連項目
 
-- 前置：[微分法](../differentiation/derivative-definition.md)（微分の逆操作として）
-- 并行：[式と曲線](../curves/conics.md)（極座標の面積）
+- 前置：[微分法](../differentiation/index.md)（微分の逆操作として）
+- 并行：[式と曲線](../curves/index.md)（極座標の面積）

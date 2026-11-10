@@ -22,5 +22,5 @@ title: 整数の性質简介
 
 ## 関連項目
 
-- 前置：[数と式](../numbers/polynomial-ops.md)
+- 前置：[数と式](../numbers/index.md)
 - 后续：各项目的整数小题（数列、確率分布の数え上げ）

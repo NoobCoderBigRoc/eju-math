@@ -21,5 +21,5 @@ title: 場合の数と確率简介
 
 ## 関連項目
 
-- 前置：[集合と命題](../sets/sets.md)（元素个数公式）
-- 后续：[確率分布](../../course2/probability-distribution/variables.md)（期待値・分散の体系化）、[データの分析（補充）](../data.md)
+- 前置：[集合と命題](../sets/index.md)（元素个数公式）
+- 后续：[確率分布](../../course2/probability-distribution/index.md)（期待値・分散の体系化）、[データの分析（補充）](../data.md)
