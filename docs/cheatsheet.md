@@ -2,106 +2,126 @@
 title: 公式速查
 ---
 
-# 公式速查
+# 公式チェックシート
 
-考前 30 分钟专用。按板块聚合全站公式，点击章节标题可回到详解。
+試験直前の確認用に、項目ごとに要の公式を集めた。各見出しから詳しいページへ移動できる。
 
-## 数与式 · [详解](course1/numbers.md)
+## 数と式 · [詳しく](course1/numbers.md)
 
 $$
 (a\pm b)^2 = a^2 \pm 2ab + b^2, \qquad a^3 \pm b^3 = (a\pm b)(a^2 \mp ab + b^2)
 $$
 
+## 集合と命題 · [詳しく](course1/sets.md)
+
 $$
 n(A \cup B) = n(A) + n(B) - n(A \cap B)
 $$
 
-## 二次函数 · [详解](course1/quadratic.md)
+## 2次関数 · [詳しく](course1/quadratic.md)
 
 $$
 y = a\left(x + \frac{b}{2a}\right)^2 + \frac{4ac - b^2}{4a}, \qquad D = b^2 - 4ac
 $$
 
-| $D$ | 实根 |
+| $D$ | 実数解 |
 | --- | --- |
-| $>0$ | 2 个相异实根 |
-| $=0$ | 重根 |
-| $<0$ | 无实根 |
+| $>0$ | 異なる 2 つ |
+| $=0$ | 重解 |
+| $<0$ | なし |
 
-## 图形与计量 · [详解](course1/measure.md)
+## 図形と計量 · [詳しく](course1/measure.md)
 
 $$
 \frac{a}{\sin A} = 2R, \qquad a^2 = b^2 + c^2 - 2bc\cos A, \qquad S = \frac12 ab\sin C
 $$
 
-## 图形的性质 · [详解](course1/geometry.md)
+## 図形の性質 · [詳しく](course1/geometry.md)
 
 $$
 PA \cdot PB = PT^2, \qquad \frac{S_1}{S_2} = \left(\frac{a_1}{a_2}\right)^2
 $$
 
-## 概率 · [详解](course1/probability.md)
+## 場合の数と確率 · [詳しく](course1/probability.md)
 
 $$
-{}_nC_r = \frac{n!}{r!(n-r)!}, \qquad P(A \cup B) = P(A)+P(B)-P(A\cap B)
+{}_nC_r = \frac{n!}{r!(n-r)!}, \qquad P(A \cup B) = P(A)+P(B)-P(A\cap B), \qquad {}_nC_r p^r (1-p)^{n-r} \ \text{（反復試行）}
 $$
 
-$$
-P(\text{至少一次}) = 1 - P(\text{一次都没有})
-$$
-
-## 数据的统计分析 · [详解](course1/data.md)
+## 整数の性質 · [詳しく](course1/integer.md)
 
 $$
-s^2 = \overline{x^2} - \bar{x}^2, \qquad s_{ax+b} = |a|\,s_x
+n = \prod p_i^{a_i} \implies \text{約数の個数} = \prod (a_i + 1), \qquad \mathrm{gcd}(a,b)\cdot\mathrm{lcm}(a,b) = ab
 $$
 
-## 整数的性质 · [详解](course1/integer.md)
+## いろいろな式 · [詳しく](course2/polynomials.md)
 
 $$
-n = \prod p_i^{a_i} \implies \text{约数个数} = \prod (a_i + 1), \qquad \gcd(a,b)\cdot\mathrm{lcm}(a,b) = ab
+(a+b)^n = \sum_{k=0}^{n} {}_nC_k a^{n-k} b^k, \qquad \alpha + \beta + \gamma = -p, \quad \alpha\beta\gamma = -r
 $$
 
-## 三角函数 · [详解](course2/trig.md)
+## 図形と方程式 · [詳しく](course2/geometry-equation.md)
 
 $$
-\sin(\alpha \pm \beta) = \sin\alpha\cos\beta \pm \cos\alpha\sin\beta
+d = \frac{|ax_1 + by_1 + c|}{\sqrt{a^2 + b^2}} \ \text{（点と直線の距離）}
 $$
 
-$$
-a\sin\theta + b\cos\theta = \sqrt{a^2+b^2}\sin(\theta + \varphi)
-$$
-
-## 指数·对数 · [详解](course2/explog.md)
+## 指数関数・対数関数 · [詳しく](course2/explog.md)
 
 $$
 \log_a xy = \log_a x + \log_a y, \qquad \log_a b = \frac{\log_c b}{\log_c a}
 $$
 
-## 数列 · [详解](course2/sequence.md)
+## 三角関数 · [詳しく](course2/trig.md)
 
 $$
-S_n = \frac{n(a_1 + a_n)}{2}, \qquad S_n = \frac{a(r^n - 1)}{r-1}, \qquad \sum k^2 = \frac{n(n+1)(2n+1)}{6}
+\sin(\alpha \pm \beta) = \sin\alpha\cos\beta \pm \cos\alpha\sin\beta, \qquad a\sin\theta + b\cos\theta = \sqrt{a^2+b^2}\sin(\theta + \varphi)
 $$
 
-## 向量 · [详解](course2/vector.md)
+## 数列 · [詳しく](course2/sequence.md)
+
+$$
+S_n = \frac{n(a_1 + a_n)}{2}, \qquad S_n = \frac{a(r^n - 1)}{r-1}, \qquad \sum_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}
+$$
+
+## 確率分布 · [詳しく](course2/probability-distribution.md)
+
+$$
+E(X) = \sum x_k p_k, \qquad V(X) = E(X^2) - \{E(X)\}^2, \qquad E(aX + b) = aE(X) + b
+$$
+
+## ベクトル · [詳しく](course2/vector.md)
 
 $$
 \vec a \cdot \vec b = a_1b_1 + a_2b_2 = |\vec a||\vec b|\cos\theta
 $$
 
-## 复数平面 · [详解](course2/complex.md)
+## 複素数平面 · [詳しく](course2/complex.md)
 
 $$
-z = r(\cos\theta + i\sin\theta), \qquad z_1z_2 = r_1r_2 e^{i(\theta_1+\theta_2)}
+z = r(\cos\theta + i\sin\theta), \qquad (\cos\theta + i\sin\theta)^n = \cos n\theta + i\sin n\theta
 $$
 
-## 微分法・積分法 · [微分法](course2/differentiation.md) / [積分法](course2/integration.md)
+## 式と曲線 · [詳しく](course2/curves.md)
 
 $$
-(x^n)' = nx^{n-1}, \qquad \int_a^b f(x)\,dx = F(b) - F(a)
+y^2 = 4px, \qquad \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1, \qquad \frac{x^2}{a^2} - \frac{y^2}{b^2} = 1
 $$
 
+## 極限 · [詳しく](course2/limits.md)
+
 $$
-S = \int_a^b |f - g|\,dx, \qquad V = \pi\int_a^b \{f(x)\}^2\,dx
+S = \frac{a}{1 - r} \ (|r| < 1), \qquad \lim_{x \to 0} \frac{\sin x}{x} = 1
+$$
+
+## 微分法 · [詳しく](course2/differentiation.md)
+
+$$
+(x^n)' = nx^{n-1}, \qquad \{f(g(x))\}' = f'(g(x))g'(x), \qquad y - f(a) = f'(a)(x - a) \ \text{（接線）}
+$$
+
+## 積分法 · [詳しく](course2/integration.md)
+
+$$
+\int_a^b f(x)\,dx = F(b) - F(a), \qquad S = \int_a^b \{f(x) - g(x)\}\,dx, \qquad V = \pi\int_a^b \{f(x)\}^2\,dx
 $$
