@@ -2,6 +2,8 @@
 
 参照 [OI Wiki](https://oi-wiki.org/) 组织方式的 EJU（日本留学试验）数学知识系统，纯静态站点。
 
+**在线访问**：https://noobcoderbigroc.github.io/eju-math/
+
 ## 技术栈
 
 - **框架**：MkDocs Material 9.x（与 OI Wiki 同源方案）
