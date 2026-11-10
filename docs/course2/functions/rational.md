@@ -40,3 +40,8 @@ $y = \sqrt{ax + b}$ 等：定义域由根号内 $\ge 0$ 决定，图像是抛物
 ## 易错点
 
 - [ ] 無理関数の定義域（根号内 $\ge 0$）の確認を先に（先确认定义域再动手）
+
+## 関連項目
+
+- 基础：[指数関数・対数関数](../explog/exponent-extension.md)（指对互为反函数）
+- 后续：[極限](../limits/sequence-limits.md)、[微分法](../differentiation/derivative-definition.md)

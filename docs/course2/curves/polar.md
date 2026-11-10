@@ -8,7 +8,7 @@ title: 極座標と極方程式
 
 - 直线 $x = a$：$r\cos\theta = a$；圆 $x^2 + y^2 = ax$：$r = a\cos\theta$
 - 心脏线（カージオイド）$r = a(1 + \cos\theta)$、螺旋 $r = a\theta$ 是典型极方程曲线
-- 面积：$S = \dfrac{1}{2}\int r^2\, d\theta$（极坐标扇形面积，与 [積分法](../integration/index.md) 衔接）
+- 面积：$S = \dfrac{1}{2}\int r^2\, d\theta$（极坐标扇形面积，与 [積分法](../integration/integral-basics.md) 衔接）
 
 ??? example "演習：極方程式"
     **问题**

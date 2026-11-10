@@ -95,94 +95,159 @@ nav:
   - 数学 Course 1:
       - course1/index.md
       - 1. 数と式:
-          - course1/numbers/index.md
-          - 式の計算: course1/numbers/calculation.md
-          - 実数: course1/numbers/reals.md
+          - 式の計算:
+              - 多項式の加法・減法・乗法: course1/numbers/polynomial-ops.md
+              - 因数分解: course1/numbers/factorization.md
+          - 実数:
+              - 実数: course1/numbers/real-numbers.md
+              - 根号を含む式の計算: course1/numbers/root-calculation.md
           - 1次不等式: course1/numbers/inequalities.md
       - 2. 集合と命題:
-          - course1/sets/index.md
           - 集合: course1/sets/sets.md
           - 命題と条件: course1/sets/propositions.md
       - 3. 2次関数:
-          - course1/quadratic/index.md
-          - 2次関数とグラフ: course1/quadratic/graph.md
-          - 2次方程式と2次不等式: course1/quadratic/equations.md
+          - 2次関数とグラフ:
+              - 2次関数のグラフ: course1/quadratic/graph-basics.md
+              - 2次関数の最大と最小: course1/quadratic/max-min.md
+              - 2次関数の決定: course1/quadratic/determination.md
+          - 2次方程式と2次不等式:
+              - 2次方程式の解: course1/quadratic/equation-solutions.md
+              - 2次関数のグラフと2次方程式: course1/quadratic/graph-equation.md
+              - 2次関数のグラフと2次不等式: course1/quadratic/graph-inequality.md
       - 4. 図形と計量:
-          - course1/measure/index.md
-          - 三角比: course1/measure/ratios.md
-          - 三角比と図形: course1/measure/theorems.md
+          - 三角比:
+              - 正弦・余弦・正接: course1/measure/trig-definitions.md
+              - 三角比の相互関係: course1/measure/trig-relations.md
+          - 三角比と図形:
+              - 正弦定理・余弦定理: course1/measure/sine-cosine-laws.md
+              - 図形の計量: course1/measure/measurement.md
       - 5. 場合の数と確率:
-          - course1/probability/index.md
-          - 場合の数: course1/probability/counting.md
-          - 確率: course1/probability/probability.md
+          - 場合の数:
+              - 数え上げの原則: course1/probability/counting-principles.md
+              - 順列・組合せ: course1/probability/permutations-combinations.md
+          - 確率:
+              - 確率とその基本的な性質: course1/probability/probability-basics.md
+              - 独立な試行と反復試行: course1/probability/independent-trials.md
+              - 条件付き確率: course1/probability/conditional.md
+              - 期待値: course1/probability/expectation.md
       - 6. 整数の性質:
-          - course1/integer/index.md
-          - 約数と倍数: course1/integer/divisors.md
+          - 約数と倍数:
+              - 倍数の判定法: course1/integer/divisibility.md
+              - 素数と素因数分解: course1/integer/primes.md
+              - 最大公約数と最小公倍数: course1/integer/gcd-lcm.md
+              - 整数の割り算: course1/integer/integer-division.md
           - ユークリッドの互除法: course1/integer/euclid.md
           - 1次不定方程式: course1/integer/diophantine.md
           - 記数法: course1/integer/notation.md
       - 7. 図形の性質:
-          - course1/geometry/index.md
-          - 平面図形: course1/geometry/plane.md
-          - 空間図形: course1/geometry/solid.md
+          - 平面図形:
+              - 三角形の性質: course1/geometry/triangle-properties.md
+              - 円の性質: course1/geometry/circle-properties.md
+          - 空間図形:
+              - 直線と平面: course1/geometry/lines-planes.md
+              - 多面体: course1/geometry/polyhedra.md
       - 補充：データの分析: course1/data.md
   - 数学 Course 2:
       - course2/index.md
       - 8. いろいろな式:
-          - course2/polynomials/index.md
-          - 式と証明: course2/polynomials/proofs.md
-          - 高次方程式: course2/polynomials/equations.md
+          - 式と証明:
+              - 多項式の除法・分数式・恒等式: course2/polynomials/polynomial-division.md
+              - 二項定理: course2/polynomials/binomial.md
+              - 等式と不等式の証明: course2/polynomials/proof-methods.md
+          - 高次方程式:
+              - 複素数と2次方程式の解: course2/polynomials/complex-equations.md
+              - 解と係数の関係: course2/polynomials/vieta.md
+              - 剰余の定理と因数定理: course2/polynomials/remainder-factor.md
+              - 高次方程式の解法と性質: course2/polynomials/solving-higher.md
       - 9. 図形と方程式:
-          - course2/geometry-equation/index.md
-          - 点と直線: course2/geometry-equation/points-lines.md
-          - 円: course2/geometry-equation/circles.md
-          - 軌跡と領域: course2/geometry-equation/locus.md
+          - 点と直線:
+              - 点の座標: course2/geometry-equation/coordinates.md
+              - 直線の方程式: course2/geometry-equation/line-equations.md
+              - 点と直線の距離: course2/geometry-equation/point-line-distance.md
+          - 円:
+              - 円の方程式: course2/geometry-equation/circle-equation.md
+              - 円と直線の関係: course2/geometry-equation/circle-line.md
+          - 軌跡と領域:
+              - 軌跡と方程式: course2/geometry-equation/locus.md
+              - 不等式の表す領域: course2/geometry-equation/regions.md
       - 10. 指数関数・対数関数:
-          - course2/explog/index.md
-          - 指数関数: course2/explog/exponential.md
-          - 対数関数: course2/explog/logarithms.md
+          - 指数関数:
+              - 指数の拡張: course2/explog/exponent-extension.md
+              - 指数関数とそのグラフ: course2/explog/exp-function-graph.md
+          - 対数関数:
+              - 対数の性質: course2/explog/log-properties.md
+              - 対数関数とそのグラフ: course2/explog/log-function-graph.md
+              - 常用対数: course2/explog/common-log.md
       - 11. 三角関数:
-          - course2/trig/index.md
-          - 三角関数: course2/trig/basics.md
-          - 加法定理: course2/trig/addition.md
+          - 三角関数:
+              - 一般角と弧度法: course2/trig/radian.md
+              - 三角関数の基本的な性質: course2/trig/trig-properties.md
+              - 三角関数のグラフ: course2/trig/trig-graphs.md
+          - 加法定理:
+              - 三角関数の加法定理: course2/trig/addition-formulas.md
+              - 加法定理の応用: course2/trig/addition-applications.md
+              - 三角関数の合成: course2/trig/trig-composition.md
       - 12. 数列:
-          - course2/sequence/index.md
-          - 数列とその和: course2/sequence/series.md
-          - 漸化式と数学的帰納法: course2/sequence/recurrence.md
+          - 数列とその和:
+              - 等差数列と等比数列: course2/sequence/arithmetic-geometric.md
+              - 階差数列: course2/sequence/difference-sequence.md
+              - いろいろな数列の和: course2/sequence/series-sums.md
+          - 漸化式と数学的帰納法:
+              - 漸化式と数列: course2/sequence/recurrence.md
+              - 数学的帰納法: course2/sequence/induction.md
       - 13. 確率分布:
-          - course2/probability-distribution/index.md
           - 確率変数と確率分布: course2/probability-distribution/variables.md
           - 期待値・分散・標準偏差: course2/probability-distribution/moments.md
           - 共分散と相関係数: course2/probability-distribution/covariance.md
           - 確率変数の変換と和: course2/probability-distribution/transformation.md
       - 14. ベクトル:
-          - course2/vector/index.md
-          - 平面上のベクトル: course2/vector/plane.md
-          - ベクトルと平面図形: course2/vector/figures.md
-          - 空間座標とベクトル: course2/vector/space.md
+          - 平面上のベクトル:
+              - ベクトルの演算と成分: course2/vector/vector-operations.md
+              - ベクトルの内積: course2/vector/dot-product.md
+          - ベクトルと平面図形:
+              - 位置ベクトル: course2/vector/position-vectors.md
+              - ベクトルと図形: course2/vector/vector-figures.md
+              - ベクトル方程式: course2/vector/vector-equations.md
+          - 空間座標とベクトル:
+              - 空間座標とベクトル: course2/vector/space-coordinates.md
+              - ベクトルと空間図形: course2/vector/space-figures.md
       - 15. 複素数平面:
-          - course2/complex/index.md
-          - 複素数平面と極形式: course2/complex/plane.md
+          - 複素数平面:
+              - 複素数平面: course2/complex/complex-plane.md
+              - 複素数の極形式: course2/complex/polar-form.md
           - ド・モアブルの定理: course2/complex/demoivre.md
           - 複素数と図形: course2/complex/figures.md
       - 16. 式と曲線:
-          - course2/curves/index.md
           - 2次曲線: course2/curves/conics.md
           - 媒介変数表示: course2/curves/parametric.md
           - 極座標と極方程式: course2/curves/polar.md
       - 17. 関数:
-          - course2/functions/index.md
           - 分数関数と無理関数: course2/functions/rational.md
           - 逆関数と合成関数: course2/functions/inverse.md
       - 18. 極限:
-          - course2/limits/index.md
-          - 数列とその極限: course2/limits/sequences.md
-          - 関数とその極限: course2/limits/functions.md
+          - 数列とその極限:
+              - 数列の極限: course2/limits/sequence-limits.md
+              - 無限級数の和: course2/limits/infinite-series.md
+          - 関数とその極限:
+              - 関数の極限: course2/limits/function-limits.md
+              - 関数の連続性: course2/limits/continuity.md
       - 19. 微分法:
-          - course2/differentiation/index.md
-          - 導関数: course2/differentiation/derivatives.md
-          - 導関数の応用: course2/differentiation/applications.md
+          - 導関数:
+              - 微分係数と導関数: course2/differentiation/derivative-definition.md
+              - 関数の和・差・積・商の導関数: course2/differentiation/derivative-rules.md
+              - 三角関数・指数関数・対数関数の導関数: course2/differentiation/elementary-derivatives.md
+              - 第n次導関数: course2/differentiation/nth-derivative.md
+          - 導関数の応用:
+              - 接線: course2/differentiation/tangent-lines.md
+              - 関数の値の変化と最大・最小: course2/differentiation/increase-decrease.md
+              - 関数のグラフ: course2/differentiation/function-graphs.md
+              - 速度・加速度と近似式: course2/differentiation/velocity-approximation.md
       - 20. 積分法:
-          - course2/integration/index.md
-          - 不定積分と定積分: course2/integration/integrals.md
-          - 積分の応用: course2/integration/applications.md
+          - 不定積分と定積分:
+              - 積分とその基本的な性質: course2/integration/integral-basics.md
+              - 置換積分法・部分積分法: course2/integration/integral-techniques.md
+              - いろいろな関数の積分: course2/integration/various-integrals.md
+          - 積分の応用:
+              - 面積: course2/integration/area.md
+              - 体積: course2/integration/volume.md
+              - 曲線の長さ: course2/integration/arc-length.md
