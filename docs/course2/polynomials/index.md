@@ -22,5 +22,5 @@ title: いろいろな式简介
 
 ## 関連項目
 
-- 前置：[数と式](../../course1/numbers/polynomial-ops.md)
-- 后续：[複素数平面](../complex/complex-plane.md)、[微分法](../differentiation/derivative-definition.md)（恒等式与系数比较）
+- 前置：[数と式](../../course1/numbers/index.md)
+- 后续：[複素数平面](../complex/index.md)、[微分法](../differentiation/index.md)（恒等式与系数比较）

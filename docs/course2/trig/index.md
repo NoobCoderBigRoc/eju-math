@@ -21,5 +21,5 @@ title: 三角関数简介
 
 ## 関連項目
 
-- 前置：[図形と計量](../../course1/measure/trig-definitions.md)（三角比）
-- 后续：[微分法](../differentiation/derivative-definition.md)（三角関数の導関数）、[積分法](../integration/integral-basics.md)
+- 前置：[図形と計量](../../course1/measure/index.md)（三角比）
+- 后续：[微分法](../differentiation/index.md)（三角関数の導関数）、[積分法](../integration/index.md)

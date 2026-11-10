@@ -23,5 +23,5 @@ title: 微分法简介
 
 ## 関連項目
 
-- 前置：[極限](../limits/sequence-limits.md)（导数即极限）
-- 并行：[積分法](../integration/integral-basics.md)（微积分基本定理连接两者）
+- 前置：[極限](../limits/index.md)（导数即极限）
+- 并行：[積分法](../integration/index.md)（微积分基本定理连接两者）

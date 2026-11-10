@@ -20,5 +20,5 @@ title: 指数関数・対数関数简介
 
 ## 関連項目
 
-- 前置：[数と式](../../course1/numbers/polynomial-ops.md)（根号・累乗）
-- 后续：[微分法](../differentiation/derivative-definition.md)、[積分法](../integration/integral-basics.md)（指对函数的微积分）
+- 前置：[数と式](../../course1/numbers/index.md)（根号・累乗）
+- 后续：[微分法](../differentiation/index.md)、[積分法](../integration/index.md)（指对函数的微积分）

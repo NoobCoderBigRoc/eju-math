@@ -19,5 +19,5 @@ title: 図形の性質简介
 
 ## 関連項目
 
-- 前置：[図形と計量](../measure/trig-definitions.md)（正弦・余弦定理）
-- 后续：[ベクトル](../../course2/vector/vector-operations.md)、[式と曲線](../../course2/curves/conics.md)
+- 前置：[図形と計量](../measure/index.md)（正弦・余弦定理）
+- 后续：[ベクトル](../../course2/vector/index.md)、[式と曲線](../../course2/curves/index.md)

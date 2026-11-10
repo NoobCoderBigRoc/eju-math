@@ -19,5 +19,5 @@ title: 極限简介
 
 ## 関連項目
 
-- 前置：[数列](../sequence/arithmetic-geometric.md)（等比数列の和）
+- 前置：[数列](../sequence/index.md)（等比数列の和）
 - 后续：[微分法](../differentiation/index.md）（导数即差商的极限）

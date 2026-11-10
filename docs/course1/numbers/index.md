@@ -21,4 +21,4 @@ title: 数と式简介
 ## 関連項目
 
 - 前置：初中数学（式の展開、平方根、一次方程式）
-- 后续：[集合と命題](../sets/sets.md)、[いろいろな式](../../course2/polynomials/polynomial-division.md)
+- 后续：[集合と命題](../sets/index.md)、[いろいろな式](../../course2/polynomials/index.md)
