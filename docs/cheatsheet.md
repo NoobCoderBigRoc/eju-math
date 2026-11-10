@@ -96,7 +96,7 @@ $$
 z = r(\cos\theta + i\sin\theta), \qquad z_1z_2 = r_1r_2 e^{i(\theta_1+\theta_2)}
 $$
 
-## 微分与积分 · [详解](course2/calculus.md)
+## 微分法・積分法 · [微分法](course2/differentiation.md) / [積分法](course2/integration.md)
 
 $$
 (x^n)' = nx^{n-1}, \qquad \int_a^b f(x)\,dx = F(b) - F(a)
