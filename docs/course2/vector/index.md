@@ -1,0 +1,26 @@
+---
+title: ベクトル简介
+---
+
+# ベクトル简介（数学C）
+
+向量把几何变成可计算的代数：成分与内积是全部工具，平面与空间用同一套语言处理。
+
+本项目的具体内容都在下面的细目页中（左侧导航点开「14. ベクトル」即可逐层展开）。
+
+## 与考纲的对应
+
+| 考纲分组 | 细目（点击进入） |
+| --- | --- |
+| 平面上のベクトル | [ベクトルの演算と成分](vector-operations.md) |
+| 平面上のベクトル | [ベクトルの内積](dot-product.md) |
+| ベクトルと平面図形 | [位置ベクトル](position-vectors.md) |
+| ベクトルと平面図形 | [ベクトルと図形](vector-figures.md) |
+| ベクトルと平面図形 | [ベクトル方程式](vector-equations.md) |
+| 空間座標とベクトル | [空間座標とベクトル](space-coordinates.md) |
+| 空間座標とベクトル | [ベクトルと空間図形](space-figures.md) |
+
+## 関連項目
+
+- 前置：[図形の性質](../../course1/geometry/triangle-properties.md)、[図形と方程式](../geometry-equation/coordinates.md)
+- 后续：[複素数平面](../complex/complex-plane.md)（复数与向量平行处理）

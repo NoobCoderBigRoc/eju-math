@@ -1,0 +1,21 @@
+---
+title: 関数简介
+---
+
+# 関数简介（数学III）
+
+分数関数・無理関数与逆関数・合成関数，是进入数学III（極限・微積分）的门面。
+
+本项目的具体内容都在下面的细目页中（左侧导航点开「17. 関数」即可逐层展开）。
+
+## 与考纲的对应
+
+| 考纲分组 | 细目（点击进入） |
+| --- | --- |
+| — | [分数関数と無理関数](rational.md) |
+| — | [逆関数と合成関数](inverse.md) |
+
+## 関連項目
+
+- 基础：[指数関数・対数関数](../explog/exponent-extension.md)（指对互为反函数）
+- 后续：[極限](../limits/sequence-limits.md)、[微分法](../differentiation/derivative-definition.md)

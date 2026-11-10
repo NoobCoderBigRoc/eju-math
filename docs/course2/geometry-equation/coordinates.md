@@ -11,8 +11,3 @@ title: 点の座標
 ## 易错点
 
 - [ ] 内分点の公式で $m$、$n$ の位置を取り違える（内分点权重与端点是"交叉对应"）
-
-## 関連項目
-
-- 前置：[2次関数](../../course1/quadratic/graph-basics.md)、[図形の性質](../../course1/geometry/triangle-properties.md)
-- 后续：[ベクトル](../vector/vector-operations.md)（用向量重看图形）、[式と曲線](../curves/conics.md)（二次曲线）

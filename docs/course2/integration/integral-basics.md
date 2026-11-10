@@ -28,8 +28,3 @@ title: 積分とその基本的な性質
 ## 易错点
 
 - [ ] $\int \dfrac{1}{x} dx = \log|x| + C$ の絶対値（对数里的绝对值别丢）
-
-## 関連項目
-
-- 前置：[微分法](../differentiation/derivative-definition.md)（微分の逆操作として）
-- 并行：[式と曲線](../curves/conics.md)（極座標の面積）

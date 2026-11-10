@@ -35,8 +35,3 @@ $y = ax^2 + bx + c$ 平方完成（平方完成）为 $y = a(x - p)^2 + q$ 后�
 
 - [ ] 平方完成时常数项处理错误（提出 $a$ 后再配）
 - [ ] 「下に凸／上に凸」与 $a$ 的符号对应（$a>0$ 为下に凸＝开口向上，别按中文直觉读反）
-
-## 関連項目
-
-- 前置：[数と式](../numbers/polynomial-ops.md)（因数分解・平方根）
-- 后续：[図形と方程式](../../course2/geometry-equation/coordinates.md)、[微分法](../../course2/differentiation/derivative-definition.md)（用导数做极值）

@@ -26,8 +26,3 @@ title: 微分係数と導関数
     **解答**
 
     $$f'(1) = \lim_{h \to 0} \frac{(1 + h)^2 - 1}{h} = \lim_{h \to 0} \frac{2h + h^2}{h} = \lim_{h \to 0} (2 + h) = 2$$
-
-## 関連項目
-
-- 前置：[極限](../limits/sequence-limits.md)（导数即极限）
-- 并行：[積分法](../integration/integral-basics.md)（微积分基本定理连接两者）

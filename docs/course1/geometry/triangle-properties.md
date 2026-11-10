@@ -45,8 +45,3 @@ $$\frac{AF}{FB} \cdot \frac{BD}{DC} \cdot \frac{CE}{EA} = 1$$
 
 - [ ] チェバ／メネラウスの比の取る方向を一周で統一する（绕一周方向统一）
 - [ ] 外心・垂心の位置は鈍角三角形で外部に出る（钝角时在形外）
-
-## 関連項目
-
-- 前置：[図形と計量](../measure/trig-definitions.md)（正弦・余弦定理）
-- 后续：[ベクトル](../../course2/vector/vector-operations.md)、[式と曲線](../../course2/curves/conics.md)
