@@ -8,11 +8,11 @@ title: 三角関数の加法定理
 - $\cos(\alpha \pm \beta) = \cos\alpha\cos\beta \mp \sin\alpha\sin\beta$（符号与左边相反）
 - $\tan(\alpha \pm \beta) = \dfrac{\tan\alpha \pm \tan\beta}{1 \mp \tan\alpha\tan\beta}$
 
-??? example "演習：加法定理"
-    **问题**
+**演習：加法定理**
 
-    $\sin 75^\circ$ の値を求めよ。
+$\sin 75^\circ$ の値を求めよ。
 
+??? example "思路・解答"
     **答案**
 
     $\dfrac{\sqrt{6} + \sqrt{2}}{4}$

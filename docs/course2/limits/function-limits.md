@@ -8,11 +8,11 @@ title: 関数の極限
 - 重要极限：$\lim_{x \to 0} \dfrac{\sin x}{x} = 1$、$\lim_{x \to 0} \dfrac{e^x - 1}{x} = 1$、$\lim_{x \to 0} \dfrac{\log(1 + x)}{x} = 1$（$x$ 必须以弧度/自然对数为前提）。
 - 片侧极限（左極限・右極限）不一致则极限不存在；挟み撃ち（夹逼）处理 $\dfrac{\sin}{}$ 型估值。
 
-??? example "演習：関数の極限"
-    **问题**
+**演習：関数の極限**
 
-    $\displaystyle \lim_{x \to 0} \frac{\sin 3x}{x}$ を求めよ。
+$\displaystyle \lim_{x \to 0} \frac{\sin 3x}{x}$ を求めよ。
 
+??? example "思路・解答"
     **答案**
 
     $3$

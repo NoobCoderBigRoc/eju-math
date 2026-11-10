@@ -6,11 +6,11 @@ title: 数列の極限
 
 等比数列 $r^n$：$|r| < 1$ 时收敛于 0、$r = 1$ 时为 1、$r \le -1$ 或 $r > 1$ 时发散（$r = -1$ 是振動）。分数式数列的极限：分子分母同除以最高次项。有理化处理根号差：$\sqrt{n + 1} - \sqrt{n} = \dfrac{1}{\sqrt{n + 1} + \sqrt{n}} \to 0$。
 
-??? example "演習：数列の極限"
-    **问题**
+**演習：数列の極限**
 
-    $\displaystyle \lim_{n \to \infty} (\sqrt{n + 1} - \sqrt{n})$ を求めよ。
+$\displaystyle \lim_{n \to \infty} (\sqrt{n + 1} - \sqrt{n})$ を求めよ。
 
+??? example "思路・解答"
     **答案**
 
     $0$

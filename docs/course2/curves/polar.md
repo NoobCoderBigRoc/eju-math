@@ -10,11 +10,11 @@ title: 極座標と極方程式
 - 心脏线（カージオイド）$r = a(1 + \cos\theta)$、螺旋 $r = a\theta$ 是典型极方程曲线
 - 面积：$S = \dfrac{1}{2}\int r^2\, d\theta$（极坐标扇形面积，与 [積分法](../integration/integral-basics.md) 衔接）
 
-??? example "演習：極方程式"
-    **问题**
+**演習：極方程式**
 
-    極方程式 $r = 2\cos\theta$ の表す曲線を直交座標の方程式で表せ。
+極方程式 $r = 2\cos\theta$ の表す曲線を直交座標の方程式で表せ。
 
+??? example "思路・解答"
     **答案**
 
     $(x - 1)^2 + y^2 = 1$
