@@ -34,3 +34,8 @@ $$n(A \cup B) = n(A) + n(B) - n(A \cap B)$$
 
 - [ ] $n(A \cup B)$ 忘记减去重复计数的 $n(A \cap B)$
 - [ ] 「A または B」（或）是并集、「A かつ B」（且）是交集，别读反
+
+## 関連項目
+
+- 前置：[数と式](../numbers/polynomial-ops.md)
+- 后续：[場合の数と確率](../probability/counting-principles.md)（用集合数元素个数）
