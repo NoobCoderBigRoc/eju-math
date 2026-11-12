@@ -14,7 +14,8 @@ EJU Math 访问统计服务
   PORT                 监听端口，默认 8787
   ANALYTICS_DB         SQLite 路径，默认 ./data/analytics.db
   ADMIN_TOKEN          看板令牌，必填（生产环境）
-  ALLOWED_ORIGINS      采集接口允许的来源，逗号分隔，默认 *
+  ALLOWED_ORIGINS      采集接口允许的来源，逗号分隔，默认 *；配置后将按 Origin 强制校验
+  TRUSTED_PROXIES      可信反向代理的 IP（逗号分隔，默认 127.0.0.1,::1）；仅来自这些地址时才信任 X-Forwarded-For 与国家头
   SALT                 访客哈希盐，留空则自动生成到 data/.salt
   RETENTION_DAYS       数据保留天数，默认 400
 
@@ -25,12 +26,14 @@ EJU Math 访问统计服务
 import hashlib
 import hmac
 import json
+import mimetypes
 import os
 import re
 import secrets
 import sqlite3
 import threading
 import time
+from contextlib import contextmanager
 from datetime import date, datetime, time as dtime, timedelta
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import parse_qs, urlparse
@@ -42,6 +45,7 @@ PORT = int(os.environ.get("PORT", "8787"))
 DB_PATH = os.environ.get("ANALYTICS_DB", os.path.join(BASE_DIR, "data", "analytics.db"))
 ADMIN_TOKEN = os.environ.get("ADMIN_TOKEN", "")
 ALLOWED_ORIGINS = os.environ.get("ALLOWED_ORIGINS", "*")
+TRUSTED_PROXIES = [p.strip() for p in os.environ.get("TRUSTED_PROXIES", "127.0.0.1,::1").split(",") if p.strip()]
 RETENTION_DAYS = int(os.environ.get("RETENTION_DAYS", "400"))
 MAX_BODY = 8 * 1024
 RATE_LIMIT = 120          # 每 IP 每分钟最多采集次数
@@ -89,21 +93,44 @@ CREATE INDEX IF NOT EXISTS idx_events_vis  ON events(visitor);
 _db_lock = threading.Lock()
 
 
-def db_connect() -> sqlite3.Connection:
+@contextmanager
+def db_connect():
     conn = sqlite3.connect(DB_PATH, timeout=15)
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA journal_mode=WAL")
     conn.execute("PRAGMA synchronous=NORMAL")
-    return conn
+    try:
+        yield conn
+        conn.commit()
+    finally:
+        conn.close()
 
 
 def init_db() -> None:
     os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
     with db_connect() as conn:
         conn.executescript(SCHEMA)
-        if RETENTION_DAYS > 0:
-            cutoff = int(time.time()) - RETENTION_DAYS * 86400
-            conn.execute("DELETE FROM events WHERE ts < ?", (cutoff,))
+        _cleanup_old(conn)
+
+
+def _cleanup_old(conn) -> None:
+    if RETENTION_DAYS > 0:
+        cutoff = int(time.time()) - RETENTION_DAYS * 86400
+        conn.execute("DELETE FROM events WHERE ts < ?", (cutoff,))
+
+
+_last_cleanup = time.time()
+
+
+def maybe_cleanup() -> None:
+    """保留期清理每天最多执行一次（不再只依赖进程启动）。"""
+    global _last_cleanup
+    now = time.time()
+    if now - _last_cleanup < 86400:
+        return
+    _last_cleanup = now
+    with _db_lock, db_connect() as conn:
+        _cleanup_old(conn)
 
 
 # ---------------------------------------------------------------- 解析逻辑
@@ -161,10 +188,16 @@ def visitor_id(ip: str, ua: str, day: str) -> str:
     return hashlib.sha256(raw).hexdigest()[:32]
 
 
+def from_trusted_proxy(handler) -> bool:
+    return handler.client_address[0] in TRUSTED_PROXIES
+
+
 def client_ip(handler) -> str:
-    fwd = handler.headers.get("X-Forwarded-For", "")
-    if fwd:
-        return fwd.split(",")[0].strip()
+    # X-Forwarded-For 只能来自可信反向代理，否则任何人都能伪造 IP 绕过限流与 UV 统计
+    if from_trusted_proxy(handler):
+        fwd = handler.headers.get("X-Forwarded-For", "")
+        if fwd:
+            return fwd.split(",")[0].strip()
     return handler.client_address[0]
 
 
@@ -189,6 +222,9 @@ _rate_lock = threading.Lock()
 def rate_ok(ip: str) -> bool:
     now = time.time()
     with _rate_lock:
+        if len(_rate) > 4096:  # 顺手清掉已过期的窗口，防止字典无限膨胀
+            for stale in [k for k, w in _rate.items() if now - w[0] > RATE_WINDOW]:
+                del _rate[stale]
         window = _rate.get(ip)
         if not window or now - window[0] > RATE_WINDOW:
             _rate[ip] = [now, 1]
@@ -197,6 +233,19 @@ def rate_ok(ip: str) -> bool:
             return False
         window[1] += 1
         return True
+
+
+_auth_fails: dict[str, list] = {}
+
+
+def _auth_attempt_ok(ip: str) -> bool:
+    """记录一次鉴权失败；10 分钟内失败超过 30 次则拒绝（防 Token 暴力破解）。"""
+    now = time.time()
+    with _rate_lock:
+        fails = [t for t in _auth_fails.get(ip, []) if now - t < 600]
+        fails.append(now)
+        _auth_fails[ip] = fails
+        return len(fails) <= 30
 
 
 # ---------------------------------------------------------------- 聚合
@@ -292,6 +341,7 @@ def realtime() -> dict:
 
 class Handler(BaseHTTPRequestHandler):
     server_version = "EJUAnalytics/1.0"
+    timeout = 10  # 连接级超时，防止慢速请求（slowloris）长期占用线程
 
     # --- 工具
     def _cors(self):
@@ -330,6 +380,14 @@ class Handler(BaseHTTPRequestHandler):
             return
         super().log_message(fmt, *args)
 
+    def _origin_allowed(self) -> bool:
+        # 配置了来源白名单时按 Origin 强制校验（CORS 响应头本身不是访问控制）
+        if ALLOWED_ORIGINS == "*":
+            return True
+        origin = self.headers.get("Origin", "")
+        allowed = [o.strip() for o in ALLOWED_ORIGINS.split(",") if o.strip()]
+        return bool(origin) and origin in allowed
+
     # --- 路由
     def do_OPTIONS(self):
         self.send_response(204)
@@ -346,6 +404,8 @@ class Handler(BaseHTTPRequestHandler):
 
         if path in ("/api/stats", "/api/realtime"):
             if not self._auth_ok():
+                if not _auth_attempt_ok(client_ip(self)):
+                    return self._json({"error": "too many attempts"}, 429)
                 return self._json({"error": "unauthorized"}, 401)
             if path == "/api/stats":
                 qs = parse_qs(parsed.query)
@@ -361,8 +421,10 @@ class Handler(BaseHTTPRequestHandler):
             return self._serve_file("index.html", "text/html; charset=utf-8")
         if path.startswith("/static/"):
             name = os.path.basename(path)
-            ctype = "text/css" if name.endswith(".css") else "application/javascript"
-            return self._serve_file(name, ctype + "; charset=utf-8")
+            ctype = mimetypes.guess_type(name)[0] or "application/octet-stream"
+            if ctype.startswith("text/") or ctype == "application/javascript":
+                ctype += "; charset=utf-8"
+            return self._serve_file(name, ctype)
 
         return self._json({"error": "not found"}, 404)
 
@@ -376,6 +438,12 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header("Content-Type", ctype)
         self.send_header("Content-Length", str(len(body)))
         self.send_header("Cache-Control", "no-cache")
+        self.send_header("X-Content-Type-Options", "nosniff")
+        self.send_header("Referrer-Policy", "no-referrer")
+        if ctype.startswith("text/html"):
+            self.send_header("Content-Security-Policy",
+                             "default-src 'self'; script-src 'self' 'unsafe-inline'; "
+                             "style-src 'self' 'unsafe-inline'; img-src 'self' data:")
         self.end_headers()
         self.wfile.write(body)
 
@@ -383,6 +451,9 @@ class Handler(BaseHTTPRequestHandler):
         path = urlparse(self.path).path.rstrip("/")
         if path != "/api/collect":
             return self._json({"error": "not found"}, 404)
+
+        if not self._origin_allowed():
+            return self._json({"error": "forbidden origin"}, 403)
 
         ip = client_ip(self)
         if not rate_ok(ip):
@@ -412,13 +483,16 @@ class Handler(BaseHTTPRequestHandler):
         title = str(data.get("title", ""))[:120]
         referrer = str(data.get("referrer", ""))[:300]
         screen = str(data.get("screen", ""))[:24]
-        country = (self.headers.get("CF-IPCountry") or self.headers.get("X-Country") or "")[:4]
+        country = ""
+        if from_trusted_proxy(self):  # 国家头同样只能来自可信代理，否则可任意伪造
+            country = (self.headers.get("CF-IPCountry") or self.headers.get("X-Country") or "")[:4]
 
         self_host = urlparse(f"//{self.headers.get('Host', '')}").netloc
         device, browser, os_name = parse_ua(ua)
         day = date.today().isoformat()
         vid = visitor_id(ip, ua, day)
 
+        maybe_cleanup()
         with _db_lock, db_connect() as conn:
             conn.execute(
                 "INSERT INTO events (ts, path, title, ref_host, device, browser, os, country, visitor, screen) "

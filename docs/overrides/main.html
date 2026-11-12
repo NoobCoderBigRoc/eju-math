@@ -11,10 +11,10 @@
   {{ super() }}
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="EJU数学Wiki">
-  <meta property="og:title" content="{{ page.title }} · EJU数学Wiki">
+  <meta property="og:title" content="{{ page.title or config.site_name }} · EJU数学Wiki">
   <meta property="og:description" content="参照 OI Wiki 组织方式的 EJU（日本留学试验）数学知识库：JASSO 官方考纲 20 项目全覆盖，中文讲解 × 日语术语。">
   <meta property="og:url" content="{{ page.canonical_url }}">
-  <meta property="og:image" content="https://noobcoderbigroc.github.io/eju-math/images/og.png">
+  <meta property="og:image" content="{{ config.site_url }}images/og.png">
   <meta name="twitter:card" content="summary_large_image">
   {% if config.extra.analytics_endpoint %}
   <meta name="analytics-endpoint" content="{{ config.extra.analytics_endpoint }}">

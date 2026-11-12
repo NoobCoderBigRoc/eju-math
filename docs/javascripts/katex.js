@@ -5,7 +5,6 @@
     renderMathInElement(document.body, {
       delimiters: [
         { left: "$$", right: "$$", display: true },
-        { left: "$", right: "$", display: false },
         { left: "\\(", right: "\\)", display: false },
         { left: "\\[", right: "\\]", display: true },
       ],
@@ -14,12 +13,15 @@
     });
   }
 
-  // 若主 CDN 失败（国内网络常见），回退到 unpkg
+  // 若主 CDN 失败（国内网络常见），回退到 unpkg；回退只注入一次，避免每次导航重复堆叠 script 标签
+  var fallbackTried = false;
   function ensureKatex(cb) {
     if (typeof window.katex !== "undefined" && typeof window.renderMathInElement === "function") {
       cb();
       return;
     }
+    if (fallbackTried) { cb(); return; }
+    fallbackTried = true;
     var urls = [
       "https://unpkg.com/katex@0.16.11/dist/katex.min.js",
       "https://unpkg.com/katex@0.16.11/dist/contrib/auto-render.min.js",

@@ -31,6 +31,9 @@ jobs:
 
   deploy:
     needs: build
+    permissions:
+      pages: write
+id-token: <redacted>
     runs-on: ubuntu-latest
     environment:
       name: github-pages

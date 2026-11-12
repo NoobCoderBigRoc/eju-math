@@ -44,6 +44,10 @@ theme:
 plugins:
   - search:
       separator: '[\s\u200b\-]'
+      lang:
+        - zh
+        - ja
+        - en
 
 markdown_extensions:
   - attr_list
@@ -52,6 +56,7 @@ markdown_extensions:
   - tables
   - toc:
       permalink: "#"
+      slugify: !!python/object/apply:pymdownx.slugs.slugify {kwds: {case: lower}}
   - admonition
   - pymdownx.details
   - pymdownx.superfences:
