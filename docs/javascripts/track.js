@@ -24,7 +24,7 @@
   var lastPath = "";
 
   function send() {
-    var path = location.pathname + location.search;
+    var path = location.pathname;  // 不带查询串：?q= 等参数可能含搜索词，且会把同一页面在统计里拆成多条
     // Material instant loading 会重复触发，过滤同一路径的连续上报
     if (path === lastPath) return;
     lastPath = path;

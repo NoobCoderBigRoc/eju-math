@@ -35,8 +35,8 @@ docs/
 ├── index.md            # 首页 + 知识图谱
 ├── cheatsheet.md       # 跨章节公式速查
 ├── exam/               # 考试总览、备考策略
-├── course1/            # 文科数学 7 章
-├── course2/            # 理科数学 8 章
+├── course1/            # Course 1（项目 1–7，每项目含简介/要点总结/细目页）
+├── course2/            # Course 2（项目 8–20，共 13 个项目，同上结构）
 ├── overrides/          # 主题覆盖（注入统计端点）
 ├── javascripts/katex.js  # KaTeX 渲染 + CDN 回退
 ├── javascripts/track.js  # 访问统计埋点
@@ -65,4 +65,4 @@ extra:
 
 ## 内容页面模板
 
-每个知识点页面遵循：**考纲要求 → 核心公式 → 典型例题（可折叠）→ 易错点**。新增章节时按此模板写入 `docs/courseX/*.md` 并更新 `mkdocs.yml` 的 `nav`。
+每个项目由「○○简介」（含与考纲的对应表）、「○○要点总结」（考前确认页）与考纲细目叶子页组成；叶子页遵循：**定义・公式 → 例题（题面直接展示，思路・解答折叠）→ 易错点 → 相关条目**，说明文字用中文、知识点本体保留日语（规范见 `templates/chapter-template.md`）。新增页面时按模板写入并更新 `mkdocs.yml` 的 `nav`。

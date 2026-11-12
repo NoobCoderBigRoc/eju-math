@@ -4,12 +4,15 @@ services:
     container_name: eju-analytics
     restart: unless-stopped
     ports:
-      - "8787:8787"
+      # 只绑本机：公网必须经 Caddy/nginx 反代走 HTTPS（Pages 是 HTTPS，明文端点会被浏览器按混合内容拦截）
+      - "127.0.0.1:8787:8787"
     environment:
       # 生产环境必须改成足够长的随机串：openssl rand -hex 24
       ADMIN_TOKEN: ${ADMIN_TOKEN:?请先设置 ADMIN_TOKEN}
       # 只允许你的站点域名上报
       ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:-https://noobcoderbigroc.github.io}
+      # 反代与服务同机时默认即可（127.0.0.1）；反代在其他机器时把其 IP 填进来
+      TRUSTED_PROXIES: ${TRUSTED_PROXIES:-127.0.0.1,::1}
       RETENTION_DAYS: "400"
       TZ: Asia/Shanghai
     volumes:
